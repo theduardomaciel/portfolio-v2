@@ -1,43 +1,55 @@
 {
-    "cryptosia": {
-        "description": "Uma plataforma que permite gerar chaves públicas e privadas que funcionam em sintonia, garantindo segurança simplificada de mensagens sensíveis por meio da criptografia RSA.",
-        "technologies": []
-    },
-    "officia": {
-        "description": "Um aplicativo que permite criar e gerenciar fluxos automatizados para simplificar tarefas repetitivas e aumentar a produtividade.",
-        "technologies": [
-            {
-                "name": "Mobile",
-                "outro": "E + de outras 50 bibliotecas"
-            }
-        ]
-    },
-    "estudaí": {
-        "description": "Uma plataforma de organização de estudos online que busca ajudar a revisar e manter as disciplinas em dia.",
-        "technologies": [
-            {
-                "name": "Mobile",
-                "outro": "Em breve..."
-            }
-        ]
-    },
-    "DFL": {
-        "description": "Um aplicativo que busca ajudar a denunciar focos de lixo e encontrar pontos de coleta de lixo em metrópoles.",
-        "technologies": [
-            {
-                "name": "Mobile",
-                "outro": "E + de outras 30 bibliotecas"
-            }
-        ]
-    },
-    "presenteio": {
-        "description": "Uma plataforma de organização de eventos sociais que busca ajudar a criar bons momentos de forma fácil e prática."
-    },
-    "PATA": {
-        "description": "Um site que irá ajudá-lo a encontrar animais desabrigados vulneráveis, bem como ajudar abrigos superlotados."
-    },
-    "portfolio": {
-        "name": "este portfólio.",
-        "description": "Um portfólio simples para exibir meus projetos e conhecimentos."
-    }
+	"IChess": {
+		"description": "Uma aplicação web para membros e administradores do projeto de extensão IChess.",
+		"technologies": []
+	},
+	"cryptosia": {
+		"description": "Uma plataforma que permite gerar chaves públicas e privadas que funcionam em sintonia, garantindo segurança simplificada de mensagens sensíveis por meio da criptografia RSA.",
+		"technologies": []
+	},
+	"officia": {
+		"description": "Um aplicativo que permite criar e gerenciar fluxos automatizados para simplificar tarefas repetitivas e aumentar a produtividade.",
+		"technologies": [
+			{
+				"name": "Mobile",
+				"outro": "E + de outras 50 bibliotecas"
+			}
+		]
+	},
+	"estudaí": {
+		"description": "Uma plataforma de organização de estudos online que busca ajudar a revisar e manter as disciplinas em dia.",
+		"technologies": [
+			{
+				"name": "Mobile",
+				"outro": "Em breve..."
+			}
+		]
+	},
+	"alloquium": {
+		"description": "Uma plataforma para guardar o que te conforta. Mantenha contato com suas músicas, filmes, livros favoritos e muito mais, sozinho ou com amigos.",
+		"technologies": []
+	},
+	"minuta": {
+		"description": "Uma plataforma pessoal que engloba hábitos, acompanhamento diário e pensamentos. Seja você mesmo. Expresse seus sentimentos. Eternize.",
+		"technologies": []
+	},
+	"DFL": {
+		"description": "Um aplicativo que busca ajudar a denunciar focos de lixo e encontrar pontos de coleta de lixo em metrópoles.",
+		"technologies": [
+			{
+				"name": "Mobile",
+				"outro": "E + de outras 30 bibliotecas"
+			}
+		]
+	},
+	"presenteio": {
+		"description": "Uma plataforma de organização de eventos sociais que busca ajudar a criar bons momentos de forma fácil e prática."
+	},
+	"PATA": {
+		"description": "Um site que irá ajudá-lo a encontrar animais desabrigados vulneráveis, bem como ajudar abrigos superlotados."
+	},
+	"portfolio": {
+		"name": "este portfólio.",
+		"description": "Um portfólio simples para exibir meus projetos e conhecimentos."
+	}
 }

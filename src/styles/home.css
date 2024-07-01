@@ -354,7 +354,7 @@
         transform: scale(1);
         transition: opacity 500ms, transform 500ms;
 
-        padding-top: 3.5rem;
+        padding-top: 1.5rem;
 
         /* Create View Timeline */
         view-timeline-name: --hiding-icon;

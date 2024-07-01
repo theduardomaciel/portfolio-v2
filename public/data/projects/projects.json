@@ -1,226 +1,290 @@
 [
-    {
-        "id": "presenteio",
-        "description": "A platform for automating social events that seeks to help create good moments in an easy and practical way. Good memories last forever.",
-        "project_url": "https://presenteio.vercel.app",
-        "figma_url": "https://www.figma.com/file/PuDRDoObYhb6F1DWohqrjE/Presenteio?node-id=152%3A114",
-        "accent_color": "255, 38, 38",
-        "image_url": "https://imgur.com/eDFa8Ux.png",
-        "status": "WORK_IN_PROGRESS",
-        "year": 2023,
-        "technologies": [
-            {
-                "name": "Frontend",
-                "link": "https://github.com/theduardomaciel/presenteio",
-                "techs": [
-                    "HTML",
-                    "CSS",
-                    "Typescript",
-                    "React",
-                    "Next.js",
-                    "Axios",
-                    "Radix"
-                ]
-            },
-            {
-                "name": "Backend",
-                "techs": [
-                    "Prisma",
-                    "MySQL",
-                    "Typescript",
-                    "Node.js",
-                    "Next.js",
-                    "React Email",
-                    "Vercel OG",
-                    "SendGrid",
-                    "Imgur",
-                    "JWT"
-                ]
-            }
-        ]
-    },
-    {
-        "id": "cryptosia",
-        "description": "Use cryptosia to generate public and private keys that work in sync, ensuring simplified security of sensitive messages through RSA encryption.",
-        "project_url": "https://cryptosia.vercel.app",
-        "figma_url": "https://www.figma.com/file/NmFuHmLCApizrEqbQM9xKt/Criptografia-RSA---Frontend?type=design&mode=design&t=e5psnlP509MMyp9G-1",
-        "accent_color": "238, 215, 156",
-        "image_url": "https://imgur.com/qxCZu3W.png",
-        "status": "COMPLETED",
-        "year": 2023,
-        "technologies": [
-            {
-                "name": "Web",
-                "link": "https://github.com/theduardomaciel/cryptosia-web",
-                "techs": [
-                    "HTML",
-                    "CSS",
-                    "Typescript",
-                    "Next.js",
-                    "Axios",
-                    "Radix",
-                    "Material Symbols"
-                ]
-            },
-            {
-                "name": "Backend",
-                "techs": ["WebAssembly", "Emscripten", "C"]
-            }
-        ]
-    },
-    {
-        "id": "officia",
-        "description": "An app that lets you create and manage automated flows to simplify repetitive tasks and increase productivity.",
-        "project_url": "https://officia.vercel.app",
-        "figma_url": "https://www.figma.com/file/oouRCiS0qlC3PS0UaRxXZC/officia?type=design&node-id=703%3A1870&t=H53mYGQD7dAZSFze-1",
-        "accent_color": "108, 190, 69",
-        "image_url": "https://i.imgur.com/fLc7gD3.png",
-        "status": "WORK_IN_PROGRESS",
-        "year": 2022,
-        "technologies": [
-            {
-                "name": "Web",
-                "link": "https://github.com/theduardomaciel/officia-web",
-                "techs": [
-                    "HTML",
-                    "CSS",
-                    "Typescript",
-                    "React",
-                    "Next.js",
-                    "Axios",
-                    "Radix",
-                    "Material Symbols"
-                ]
-            },
-            {
-                "name": "API",
-                "link": "https://github.com/theduardomaciel/officia-api",
-                "techs": ["NestJS", "Node.js", "Prisma", "MySQL (Planet Scale)"]
-            },
-            {
-                "name": "Mobile",
-                "techs": [
-                    "React Native",
-                    "Expo",
-                    "React",
-                    "Typescript",
-                    "Axios"
-                ],
-                "outro": "And other +50 libraries"
-            }
-        ]
-    },
-    {
-        "id": "estudaí",
-        "description": "An online study organization platform that will help you review and keep your subjects up to date. Enough of forgetting.",
-        "project_url": "https://estudai.vercel.app",
-        "figma_url": "https://www.figma.com/file/jInN3zeekTIHTCCcniUucW/Estuda%C3%AD?node-id=112%3A1377",
-        "accent_color": "118, 66, 203",
-        "image_url": "https://imgur.com/AljLPyX.png",
-        "status": "WORK_IN_PROGRESS",
-        "year": 2021,
-        "technologies": [
-            {
-                "name": "Web",
-                "link": "https://github.com/theduardomaciel/estudai",
-                "techs": [
-                    "HTML",
-                    "CSS",
-                    "Typescript",
-                    "React",
-                    "Next.js",
-                    "Axios",
-                    "Radix",
-                    "Stitches",
-                    "Material UI"
-                ]
-            },
-            {
-                "name": "API",
-                "techs": [
-                    "Express",
-                    "Multer",
-                    "Prisma",
-                    "PostgreSQL",
-                    "Typescript",
-                    "Node.js",
-                    "Next.js"
-                ]
-            },
-            {
-                "name": "Mobile",
-                "techs": [],
-                "outro": "Coming soon..."
-            }
-        ]
-    },
-    {
-        "id": "DFL",
-        "description": "An application that will help you to report garbage outbreaks and find trash collection points in your city.",
-        "project_url": "https://dfl.vercel.app",
-        "figma_url": "https://www.figma.com/file/6PllN3nfMjMHgkNk6AKCRV/DFL---Web?node-id=182%3A280",
-        "accent_color": "52, 98, 89",
-        "image_url": "https://imgur.com/b8s3idf.png",
-        "status": "ARCHIVED",
-        "year": 2020,
-        "technologies": [
-            {
-                "name": "Web",
-                "link": "https://github.com/theduardomaciel/dfl-web",
-                "techs": [
-                    "HTML",
-                    "CSS",
-                    "Typescript",
-                    "React",
-                    "Next.js",
-                    "Axios"
-                ]
-            },
-            {
-                "name": "API",
-                "link": "https://github.com/theduardomaciel/dfl-api",
-                "techs": [
-                    "Express",
-                    "Prisma",
-                    "PostgreSQL",
-                    "Typescript",
-                    "Node.js"
-                ]
-            },
-            {
-                "name": "Mobile",
-                "link": "https://github.com/theduardomaciel/dfl-mobile",
-                "techs": [
-                    "React Native",
-                    "Expo",
-                    "React",
-                    "Typescript",
-                    "Axios"
-                ],
-                "outro": "And other +30 libraries"
-            }
-        ]
-    },
-    {
-        "id": "portfolio",
-        "name": "This portfolio.",
-        "description": "A simple portfolio for showcasing my projects and knowledge.",
-        "accent_color": "220, 220, 220",
-        "figma_url": "https://www.figma.com/file/c28YJrimbyPnhysnhSpVBe/Portfolio?node-id=460%3A252",
-        "image_url": "https://i.imgur.com/vP2ADdS.png",
-        "status": "COMPLETED",
-        "technologies": [
-            {
-                "name": "Front End",
-                "techs": [
-                    "React",
-                    "Typescript",
-                    "HTML",
-                    "CSS",
-                    "Astro",
-                    "Sanity"
-                ]
-            }
-        ]
-    }
+	{
+		"id": "IChess",
+		"description": "A web application for members and administrators of the IChess extension project.",
+		"project_url": "https://ichess-web.vercel.app",
+		"figma_url": "https://www.figma.com/design/DKXZoEFnCNbtVV6XGPXGv0/IChess?node-id=181-823&t=vTSQE66slBGmxmQE-1",
+		"accent_color": "131, 179, 82",
+		"image_url": "https://imgur.com/grhIZXD.png",
+		"status": "COMPLETED",
+		"year": 2024,
+		"technologies": [
+			{
+				"name": "Frontend",
+				"link": "https://github.com/theduardomaciel/ichess",
+				"techs": [
+					"HTML",
+					"CSS",
+					"TypeScript",
+					"React",
+					"Next.js",
+					"TailwindCSS",
+					"Radix"
+				]
+			},
+			{
+				"name": "Backend",
+				"techs": ["tRPC", "Turborepo"]
+			}
+		]
+	},
+	{
+		"id": "cryptosia",
+		"description": "Use cryptosia to generate public and private keys that work in sync, ensuring simplified security of sensitive messages through RSA encryption.",
+		"project_url": "https://cryptosia.vercel.app",
+		"figma_url": "https://www.figma.com/file/NmFuHmLCApizrEqbQM9xKt/Criptografia-RSA---Frontend?type=design&mode=design&t=e5psnlP509MMyp9G-1",
+		"accent_color": "238, 215, 156",
+		"image_url": "https://imgur.com/qxCZu3W.png",
+		"status": "COMPLETED",
+		"year": 2023,
+		"technologies": [
+			{
+				"name": "Web",
+				"link": "https://github.com/theduardomaciel/cryptosia-web",
+				"techs": [
+					"HTML",
+					"CSS",
+					"TypeScript",
+					"Next.js",
+					"Axios",
+					"Radix",
+					"Material Symbols"
+				]
+			},
+			{
+				"name": "Backend",
+				"techs": ["WebAssembly", "Emscripten", "C"]
+			}
+		]
+	},
+	{
+		"id": "officia",
+		"description": "An app that lets you create and manage automated flows to simplify repetitive tasks and increase productivity.",
+		"project_url": "https://officia.vercel.app",
+		"figma_url": "https://www.figma.com/file/oouRCiS0qlC3PS0UaRxXZC/officia?type=design&node-id=703%3A1870&t=H53mYGQD7dAZSFze-1",
+		"accent_color": "108, 190, 69",
+		"image_url": "https://i.imgur.com/fLc7gD3.png",
+		"status": "WORK_IN_PROGRESS",
+		"year": 2022,
+		"technologies": [
+			{
+				"name": "Web",
+				"link": "https://github.com/theduardomaciel/officia-web",
+				"techs": [
+					"HTML",
+					"CSS",
+					"TypeScript",
+					"React",
+					"Next.js",
+					"Axios",
+					"Radix",
+					"Material Symbols"
+				]
+			},
+			{
+				"name": "API",
+				"link": "https://github.com/theduardomaciel/officia-api",
+				"techs": ["NestJS", "Node.js", "Prisma", "MySQL (Planet Scale)"]
+			},
+			{
+				"name": "Mobile",
+				"techs": [
+					"React Native",
+					"Expo",
+					"React",
+					"TypeScript",
+					"Axios"
+				],
+				"outro": "And other +50 libraries"
+			}
+		]
+	},
+	{
+		"id": "estudaí",
+		"description": "An online study organization platform that will help you review and keep your subjects up to date. Enough of forgetting.",
+		"project_url": "https://estudai.vercel.app",
+		"figma_url": "https://www.figma.com/file/jInN3zeekTIHTCCcniUucW/Estuda%C3%AD?node-id=112%3A1377",
+		"accent_color": "118, 66, 203",
+		"image_url": "https://imgur.com/AljLPyX.png",
+		"status": "WORK_IN_PROGRESS",
+		"year": 2021,
+		"technologies": [
+			{
+				"name": "Web",
+				"link": "https://github.com/theduardomaciel/estudai",
+				"techs": [
+					"HTML",
+					"CSS",
+					"TypeScript",
+					"React",
+					"Next.js",
+					"Axios",
+					"Radix",
+					"Stitches",
+					"Material UI"
+				]
+			},
+			{
+				"name": "API",
+				"techs": [
+					"Express",
+					"Multer",
+					"Prisma",
+					"PostgreSQL",
+					"TypeScript",
+					"Node.js",
+					"Next.js"
+				]
+			},
+			{
+				"name": "Mobile",
+				"techs": [],
+				"outro": "Coming soon..."
+			}
+		]
+	},
+	{
+		"id": "alloquium",
+		"description": "A platform for store what comforts you. Keep in touch with your favorite songs, movies, books, and more, whether by yourself or with friends.",
+		"figma_url": "https://www.figma.com/design/RrvfrUW5S4Hw8zGphD41Of/alloquium?node-id=35-315&t=XqCNtuGw42lRrXNM-1",
+		"accent_color": "47, 6, 72",
+		"image_url": "https://imgur.com/uTmn276.png",
+		"status": "WORK_IN_PROGRESS",
+		"year": 2024
+	},
+	{
+		"id": "minuta",
+		"description": "A personal platform that encompasses habits, daily tracking and thoughts. Be yourself. Express your feelings. Eternalize.",
+		"figma_url": "https://www.figma.com/design/EWA0NUYsZJvuiksbBsmTWl/minuta?node-id=267-1488&t=WunQbcH3n9D3Eb9o-1",
+		"accent_color": "19, 12, 24",
+		"image_url": "https://github.com/theduardomaciel/minuta/blob/development/.github/cover.png?raw=true",
+		"status": "WORK_IN_PROGRESS",
+		"year": 2024,
+		"technologies": [
+			{
+				"name": "Mobile",
+				"link": "https://github.com/theduardomaciel/minuta",
+				"techs": [
+					"React Native",
+					"Expo",
+					"React",
+					"TypeScript",
+					"Realm"
+				]
+			},
+			{
+				"name": "API",
+				"techs": ["MongoDB"]
+			}
+		]
+	},
+	{
+		"id": "presenteio",
+		"description": "A platform for automating social events that seeks to help create good moments in an easy and practical way. Good memories last forever.",
+		"project_url": "https://presenteio.vercel.app",
+		"figma_url": "https://www.figma.com/file/PuDRDoObYhb6F1DWohqrjE/Presenteio?node-id=152%3A114",
+		"accent_color": "255, 38, 38",
+		"image_url": "https://imgur.com/eDFa8Ux.png",
+		"status": "WORK_IN_PROGRESS",
+		"year": 2023,
+		"technologies": [
+			{
+				"name": "Frontend",
+				"link": "https://github.com/theduardomaciel/presenteio",
+				"techs": [
+					"HTML",
+					"CSS",
+					"TypeScript",
+					"React",
+					"Next.js",
+					"Axios",
+					"Radix"
+				]
+			},
+			{
+				"name": "Backend",
+				"techs": [
+					"Prisma",
+					"MySQL",
+					"TypeScript",
+					"Node.js",
+					"Next.js",
+					"React Email",
+					"Vercel OG",
+					"SendGrid",
+					"Imgur",
+					"JWT"
+				]
+			}
+		]
+	},
+	{
+		"id": "DFL",
+		"description": "An application that will help you to report garbage outbreaks and find trash collection points in your city.",
+		"project_url": "https://dfl.vercel.app",
+		"figma_url": "https://www.figma.com/file/6PllN3nfMjMHgkNk6AKCRV/DFL---Web?node-id=182%3A280",
+		"accent_color": "52, 98, 89",
+		"image_url": "https://imgur.com/b8s3idf.png",
+		"status": "ARCHIVED",
+		"year": 2020,
+		"technologies": [
+			{
+				"name": "Web",
+				"link": "https://github.com/theduardomaciel/dfl-web",
+				"techs": [
+					"HTML",
+					"CSS",
+					"TypeScript",
+					"React",
+					"Next.js",
+					"Axios"
+				]
+			},
+			{
+				"name": "API",
+				"link": "https://github.com/theduardomaciel/dfl-api",
+				"techs": [
+					"Express",
+					"Prisma",
+					"PostgreSQL",
+					"TypeScript",
+					"Node.js"
+				]
+			},
+			{
+				"name": "Mobile",
+				"link": "https://github.com/theduardomaciel/dfl-mobile",
+				"techs": [
+					"React Native",
+					"Expo",
+					"React",
+					"TypeScript",
+					"Axios"
+				],
+				"outro": "And other +30 libraries"
+			}
+		]
+	},
+	{
+		"id": "portfolio",
+		"name": "This portfolio.",
+		"description": "A simple portfolio for showcasing my projects and knowledge.",
+		"accent_color": "220, 220, 220",
+		"figma_url": "https://www.figma.com/file/c28YJrimbyPnhysnhSpVBe/Portfolio?node-id=460%3A252",
+		"image_url": "https://i.imgur.com/vP2ADdS.png",
+		"status": "COMPLETED",
+		"technologies": [
+			{
+				"name": "Front End",
+				"techs": [
+					"React",
+					"TypeScript",
+					"HTML",
+					"CSS",
+					"Astro",
+					"Sanity"
+				]
+			}
+		]
+	}
 ]

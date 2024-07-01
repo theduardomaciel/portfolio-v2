@@ -18,26 +18,26 @@ const t = useTranslations(lang);
 const { pathname } = Astro.url;
 
 const SECTIONS = [
-    {
-        name: t.nav.home,
-        id: "home",
-        href: `/`,
-    },
-    {
-        name: t.nav.projects,
-        id: "projects",
-        href: `/${lang}/#projects`,
-    },
-    {
-        name: t.nav.tech,
-        id: "tech",
-        href: `/${lang}/#tech`,
-    },
-    {
-        name: "Status",
-        id: "status",
-        href: `/${lang}/status`,
-    },
+	{
+		name: t.nav.home,
+		id: "home",
+		href: "/",
+	},
+	{
+		name: t.nav.projects,
+		id: "projects",
+		href: `/${lang}/#projects`,
+	},
+	{
+		name: t.nav.tech,
+		id: "tech",
+		href: `/${lang}/#tech`,
+	},
+	{
+		name: "Status",
+		id: "status",
+		href: `/${lang}/status`,
+	},
 ];
 ---
 

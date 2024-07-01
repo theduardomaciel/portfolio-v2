@@ -1,43 +1,55 @@
 {
-    "cryptosia": {
-        "description": "Utilice criptosia para generar claves públicas y privadas que funcionen sincronizadas, garantizando una seguridad simplificada de los mensajes confidenciales mediante el cifrado RSA.",
-        "technologies": []
-    },
-    "officia": {
-        "description": "Una aplicación que te permite crear y gestionar flujos automatizados para simplificar tareas repetitivas y aumentar la productividad.",
-        "technologies": [
-            {
-                "name": "Mobile",
-                "outro": "Y más de 50 bibliotecas más"
-            }
-        ]
-    },
-    "estudaí": {
-        "description": "Una plataforma de organización de estudios en línea que te ayudará a revisar y mantener tus disciplinas actualizadas.",
-        "technologies": [
-            {
-                "name": "Mobile",
-                "outro": "Pronto..."
-            }
-        ]
-    },
-    "DFL": {
-        "description": "Una aplicación diseñada para ayudarte a reportar puntos críticos de basura y localizar puntos de recolección de basura en tu ciudad.",
-        "technologies": [
-            {
-                "name": "Mobile",
-                "outro": "Y más de 30 bibliotecas más"
-            }
-        ]
-    },
-    "presenteio": {
-        "description": "Una plataforma de automatización de eventos sociales que busca ayudar a crear buenos momentos de una manera fácil y práctica. Los buenos recuerdos duran para siempre."
-    },
-    "PATA": {
-        "description": "Un sitio web que le ayudará a encontrar animales vulnerables sin hogar, así como a refugios superpoblados."
-    },
-    "portfolio": {
-        "name": "este portafolio.",
-        "description": "Un portafolio simple para mostrar mis proyectos y experiencia."
-    }
+	"IChess": {
+		"description": "Utilice criptosia para generar claves públicas y privadas que funcionen sincronizadas, garantizando una seguridad simplificada de los mensajes confidenciales mediante el cifrado RSA.",
+		"technologies": []
+	},
+	"cryptosia": {
+		"description": "Utilice criptosia para generar claves públicas y privadas que funcionen sincronizadas, garantizando una seguridad simplificada de los mensajes confidenciales mediante el cifrado RSA.",
+		"technologies": []
+	},
+	"officia": {
+		"description": "Una aplicación que te permite crear y gestionar flujos automatizados para simplificar tareas repetitivas y aumentar la productividad.",
+		"technologies": [
+			{
+				"name": "Mobile",
+				"outro": "Y más de 50 bibliotecas más"
+			}
+		]
+	},
+	"estudaí": {
+		"description": "Una plataforma de organización de estudios en línea que te ayudará a revisar y mantener tus disciplinas actualizadas.",
+		"technologies": [
+			{
+				"name": "Mobile",
+				"outro": "Pronto..."
+			}
+		]
+	},
+	"alloquium": {
+		"description": "Una plataforma para guardar lo que te reconforta. Manténgase en contacto con sus canciones, películas, libros y más favoritos, ya sea solo o con amigos.",
+		"technologies": []
+	},
+	"minuta": {
+		"description": "Una plataforma personal que abarca hábitos, seguimiento diario y pensamientos. Sea usted mismo. Expresa tus sentimientos. Eternizar.",
+		"technologies": []
+	},
+	"DFL": {
+		"description": "Una aplicación diseñada para ayudarte a reportar puntos críticos de basura y localizar puntos de recolección de basura en tu ciudad.",
+		"technologies": [
+			{
+				"name": "Mobile",
+				"outro": "Y más de 30 bibliotecas más"
+			}
+		]
+	},
+	"presenteio": {
+		"description": "Una plataforma de automatización de eventos sociales que busca ayudar a crear buenos momentos de una manera fácil y práctica. Los buenos recuerdos duran para siempre."
+	},
+	"PATA": {
+		"description": "Un sitio web que le ayudará a encontrar animales vulnerables sin hogar, así como a refugios superpoblados."
+	},
+	"portfolio": {
+		"name": "este portafolio.",
+		"description": "Un portafolio simple para mostrar mis proyectos y experiencia."
+	}
 }

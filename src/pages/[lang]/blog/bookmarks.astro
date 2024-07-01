@@ -12,42 +12,44 @@ import PostPreview from "@/components/Post/PostPreview.astro";
 import { getAllPosts, getAllTags } from "src/lib/sanity/api";
 import getTagsFromPost from "src/lib/sanity/getTagsFromPost";
 
-import { getGuestFromId } from "src/pages/api/guest/index";
+import { getGuestFromId } from "@/api/guest/index";
 
 const guestId = Astro.cookies.get("guest.id")?.value;
 
 if (!guestId) {
-    Astro.redirect(`/blog`);
+	Astro.redirect("/blog");
 }
 
-const guest = (await getGuestFromId(guestId as string)) as any;
+const guest = await getGuestFromId(guestId as string);
 
 if (!guest) {
-    Astro.redirect(`/blog`);
+	Astro.redirect("/blog");
 }
 
 const tags = await getAllTags();
 const allPosts = await getAllPosts();
 
 if (!guest) {
-    return Astro.redirect(`/404`);
+	return Astro.redirect("/404");
 }
 
-const guestReadingListTitles = guest.readingList.map((post: any) => post.slug);
+const guestReadingListTitles = guest.readingList.map((post: Post) => post.slug);
 
-const posts = allPosts.filter((post: any) => {
-    return guestReadingListTitles.includes(post.slug.current);
+const posts = allPosts.filter((post: SanityPost) => {
+	return guestReadingListTitles.includes(post.slug.current);
 });
 
 const seo = {
-    title: "Blog",
-    description: "The blog of my simple porfolio.",
+	title: "Blog",
+	description: "The blog of my simple porfolio.",
 };
 
 export const prerender = false;
 
 import { useTranslations } from "@/i18n/utils";
 import type { translations } from "@/i18n/utils";
+import type { Guest, Post } from "@prisma/client";
+import type { SanityPost } from "@/types/post";
 
 const { lang } = Astro.params;
 const t = useTranslations(lang as keyof typeof translations).blog;

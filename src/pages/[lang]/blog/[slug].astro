@@ -11,41 +11,41 @@ import PostPreview from "@/components/Post/PostPreview.astro";
 
 import LikeButton from "@/components/Post/Buttons/LikeButton";
 import ShareButton from "@/components/Post/Buttons/ShareButton";
+import BookmarkButton from "@/components/Post/Buttons/BookmarkButton";
 
 import ArticleSchema from "@/components/seo/ArticleSchema.astro";
+import PortableText from "@/components/PortableText.astro";
 
 // Data
 import { getAllTags, getPostBySlug } from "src/lib/sanity/api";
-import PortableText from "@/components/PortableText.astro";
 import getSanityImageURL from "src/lib/sanity/getSanityImageUrl";
 import getTagsFromPost from "src/lib/sanity/getTagsFromPost";
 
 import { getPostDataBySlug } from "../../api/post/[slug]";
 import { getGuestFromId } from "../../api/guest/index";
-import BookmarkButton from "@/components/Post/Buttons/BookmarkButton";
 
 const { slug, lang } = Astro.params;
 const post = await getPostBySlug(slug as string);
 
-if (!post) {
-    return Astro.redirect("/404");
+if (!post || !slug) {
+	return Astro.redirect("/404");
 }
 
-const postData = await getPostDataBySlug(slug!);
+const postData = await getPostDataBySlug(slug);
 
 const allTags = await getAllTags();
 const tags = getTagsFromPost(allTags, post.categories);
 
 const guestId = Astro.cookies.get("guest.id")?.value;
-const guest = (await getGuestFromId(guestId as string)) as any;
+const guest = await getGuestFromId(guestId as string);
 
 const likedPostsSlugs = guest?.likedPosts.map(
-    (likedPost: any) => likedPost.slug
+	(likedPost: Post) => likedPost.slug,
 );
 const hasLiked = likedPostsSlugs?.includes(post.slug.current);
 
 const markedPostsSlugs = guest?.readingList.map(
-    (postInList: any) => postInList.slug
+	(postInList: Post) => postInList.slug,
 );
 const hasMarked = markedPostsSlugs?.includes(post.slug.current);
 
@@ -53,6 +53,7 @@ export const prerender = false;
 
 import { useTranslations } from "@/i18n/utils";
 import type { translations } from "@/i18n/utils";
+import type { Guest, Post } from "@prisma/client";
 
 const t = useTranslations(lang as keyof typeof translations).blog;
 
@@ -61,19 +62,19 @@ const body = post[`body_${lang?.replace("-", "_")}`] ?? post.body;
 
 const date = new Date(post.publishedAt);
 const formattedDate = date.toLocaleDateString(lang, {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
+	year: "numeric",
+	month: "2-digit",
+	day: "2-digit",
 });
 
 const splittedBody = body.slice(0, 160);
 
 const seo = {
-    title: title,
-    description: splittedBody,
-    image: post.mainImage
-        ? getSanityImageURL(post.mainImage).width(1200).url()
-        : undefined,
+	title: title,
+	description: splittedBody,
+	image: post.mainImage
+		? getSanityImageURL(post.mainImage).width(1200).url()
+		: undefined,
 };
 ---
 
@@ -152,7 +153,7 @@ const seo = {
                         {
                             tags.map((tag: any) => (
                                 <li>
-                                    <a href={`/blog/category/${tag.title}`}>
+                                    <a href={`/blog/category/${tag.title}`} data-astro-prefetch>
                                         #{tag.title}
                                     </a>
                                 </li>
@@ -181,13 +182,13 @@ const seo = {
                                     <LikeButton
                                         client:load
                                         post={post}
-                                        guest={guest}
+                                        guest={guest as Guest}
                                         initialValue={hasLiked}
                                     />
                                     <BookmarkButton
                                         client:load
                                         post={post}
-                                        guest={guest}
+                                        guest={guest as Guest}
                                         initialValue={hasMarked}
                                     />
                                 </div>

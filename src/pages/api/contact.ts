@@ -21,10 +21,9 @@ export default async function postEmail(email: string) {
                 data
             );
             return true;
-        } else {
+        }
             console.log("Não foi possível enviar o e-mail de contato :(");
             return false;
-        }
     } catch (error) {
         console.log(error);
         return false;

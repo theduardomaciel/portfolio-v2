@@ -38,12 +38,7 @@ import "@/styles/home.css";
 
     function generateBlobs() {
         const { width, isScreenWide } = getWindowDimensions();
-        /*         console.log(
-            width,
-            isScreenWide,
-            document.documentElement.clientWidth,
-            window.innerWidth || 0
-        ); */
+
         const blobWidth = isScreenWide ? width / 2 : width;
 
         const blob1 = getBlobPath(blobWidth);

@@ -10,7 +10,7 @@ import { getGuestFromId } from "@/api/guest";
 
 const { posts, tags } = Astro.props;
 const sortedTags = tags.sort((tagA: PostTag, tagB: PostTag) => {
-    return tagA.title.localeCompare(tagB.title);
+	return tagA.title.localeCompare(tagB.title);
 });
 
 const guestId = Astro.cookies.get("guest.id")?.value;
@@ -18,11 +18,15 @@ const guest = await getGuestFromId(guestId);
 const isLogged = guestId !== undefined;
 
 const markedPostsSlugs = guest?.readingList.map(
-    (postInList: any) => postInList.slug
+	(post: {
+		slug: Post["slug"];
+		views: Post["views"];
+	}) => post.slug,
 );
 
 import { useTranslations } from "@/i18n/utils";
 import type { translations } from "@/i18n/utils";
+import type { Post } from "@prisma/client";
 
 const { lang, category } = Astro.params;
 const t = useTranslations(lang as keyof typeof translations).blog;
@@ -33,23 +37,16 @@ const t = useTranslations(lang as keyof typeof translations).blog;
 
     function redirectToGithub() {
         const GITHUB_URL = "https://github.com/login/oauth/authorize";
-        const params = {
+        const params = new URLSearchParams({
             client_id: import.meta.env.PUBLIC_GITHUB_CLIENT_ID,
-            responseType: "code",
-            scope: "user%3Aemail read%3Auser",
+            scope: "user:email read:user",
             state: "portfolio-test",
-            allow_signup: false,
-        };
-        const authURL = `${GITHUB_URL}?${JSON.stringify(params)
-            .replace(/["{}]/g, "")
-            .replace(
-                /:/g,
-                "="
-            ) /* isso troca caracteres até demais, inclusive os do REDIRECT_URI */
-            .replace(/,/g, "&")}?redirect_uri=${
-            import.meta.env.PUBLIC_GITHUB_REDIRECT_URI
-        }`;
-        console.log(authURL);
+            redirect_uri: import.meta.env.PUBLIC_GITHUB_REDIRECT_URI,
+        });
+
+        const authURL = `${GITHUB_URL}?${params.toString()}`;
+        // console.log(authURL)
+
         window.location.href = authURL;
     }
 
@@ -118,7 +115,7 @@ const t = useTranslations(lang as keyof typeof translations).blog;
                         }}
                     >
                         <Svg
-                            src={import("src/assets/icons/github.svg?raw")}
+                            src={import("@/assets/icons/github.svg?raw")}
                             aria-label="Github icon"
                             width={`1.8rem`}
                             height={`1.8rem`}
@@ -151,7 +148,7 @@ const t = useTranslations(lang as keyof typeof translations).blog;
                                         category === tag.title ? "active" : ""
                                     }`}
                                 >
-                                    <a href={`/blog/category/${tag.title}`}>
+                                    <a href={`/blog/category/${tag.title}`} data-astro-prefetch>
                                         #{tag.title}
                                     </a>
                                 </li>

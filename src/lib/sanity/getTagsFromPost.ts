@@ -6,12 +6,12 @@ export interface PostTag {
 }
 
 export default function getTagsFromPost(allTags: PostTag[], postTags: PostTag[]) {
-    const allTagsIds = allTags.map((tag: PostTag) => tag["_id"]);
+    const allTagsIds = allTags.map((tag: PostTag) => tag._id);
 
     return postTags.map((tag: PostTag) => {
-        if (allTagsIds.includes(tag["_ref"])) {
+        if (allTagsIds.includes(tag._ref)) {
             return allTags.find(
-                (value: PostTag) => value["_id"] === tag["_ref"]
+                (value: PostTag) => value._id === tag._ref
             );
         }
     });

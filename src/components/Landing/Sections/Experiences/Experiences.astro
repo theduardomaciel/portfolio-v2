@@ -2,10 +2,10 @@
 import "@/styles/tech.css";
 
 import AstronautDeco from "@/components/Landing/AstronautDeco.astro";
-import Tag from "@/components/Landing/Tag.astro";
+import Tag from "@/components/Landing/Sections/Experiences/Tag.astro";
 
 interface Props {
-    experiences: Experience[];
+	experiences: Experience[];
 }
 
 import { useTranslations } from "@/i18n/utils";
@@ -29,8 +29,7 @@ const t = useTranslations(lang as keyof typeof translations).tech;
     <div class="content">
         <ul id="techsList" class="techsList">
             {
-                experiences &&
-                    experiences.map((techSection, sectionIndex) => (
+                experiences?.map((techSection) => (
                         <li class="techSection">
                             <Tag title={techSection.id} />
                             <ul class="techs">

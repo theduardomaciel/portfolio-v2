@@ -4,107 +4,102 @@ import Layout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/Header/Header.astro";
 import Footer from "@/components/Footer/Footer.astro";
 
-import Home from "../[lang]/landing/Home.astro";
-import { Projects } from "../[lang]/landing/Projects";
-import Experiences from "../[lang]/landing/Experiences.astro";
-import Contact from "../[lang]/landing/Contact/Contact.astro";
+import Home from "@/components/Landing/Sections/Home/Home.astro";
+import Projects from "@/components/Landing/Sections/Projects/Projects";
+import Experiences from "@/components/Landing/Sections/Experiences/Experiences.astro";
+import Contact from "@/components/Landing/Sections/Contact/Contact.astro";
 
-import projects from "@/public/data/projects/projects.json";
+import projects_en from "@/public/data/projects/projects.json";
 import projects_es from "@/public/data/projects/dictionaries/es.json";
 import projects_pt from "@/public/data/projects/dictionaries/pt-br.json";
 
-import experiences from "@/public/data/experiences/experiences.json";
+import experiences_en from "@/public/data/experiences/experiences.json";
 import experiences_es from "@/public/data/experiences/dictionaries/es.json";
 import experiences_pt from "@/public/data/experiences/dictionaries/pt-br.json";
 
 export const prerender = true;
 
 import { defaultLang, translations } from "@/i18n/utils";
+import type { Project } from "@/types/project";
+import type { Experience } from "@/types/experience";
+
+interface DictionaryProject {
+	name?: string;
+	description: string;
+	technologies?: {
+		name: string;
+		outro: string;
+	}[];
+}
 
 export async function getStaticPaths() {
-    return Object.keys(translations).map((lang) => ({
-        params: { lang },
-        props: {
-            response: {
-                projects:
-                    lang == defaultLang
-                        ? projects
-                        : projects.map((project) => {
-                              const { id, description, ...rest } = project;
+	return Object.keys(translations).map((lang) => ({
+		params: { lang },
+		props: {
+			projects:
+				lang === defaultLang
+					? projects_en
+					: projects_en.map((project) => {
+							const { id, description, ...rest } = project;
 
-                              const projectsDictionaries = {
-                                  es: projects_es,
-                                  "pt-br": projects_pt,
-                              };
+							const projectsDictionaries = {
+								es: projects_es,
+								"pt-br": projects_pt,
+							};
 
-                              const dictionary =
-                                  projectsDictionaries[
-                                      lang as keyof typeof projectsDictionaries
-                                  ];
-                              const projectDictionary = dictionary[
-                                  id as keyof typeof dictionary
-                              ] as {
-                                  name?: string;
-                                  description: string;
-                                  technologies?: {
-                                      name: string;
-                                      outro: string;
-                                  }[];
-                              };
+							const allProjectsDictionary =
+								projectsDictionaries[
+									lang as keyof typeof projectsDictionaries
+								];
 
-                              return {
-                                  ...rest,
-                                  name: projectDictionary.name || id,
-                                  description:
-                                      projectDictionary.description ||
-                                      description,
-                                  technologies: project.technologies.map(
-                                      (tech, index) => {
-                                          return {
-                                              ...tech,
-                                              outro:
-                                                  projectDictionary.technologies &&
-                                                  projectDictionary.technologies.find(
-                                                      (t) =>
-                                                          t.name === tech.name
-                                                  )?.outro,
-                                          };
-                                      }
-                                  ),
-                              };
-                          }),
-                experiences: experiences.map((experience) => {
-                    const { id, ...rest } = experience;
+							const projectDictionary = allProjectsDictionary[
+								id as keyof typeof allProjectsDictionary
+							] as DictionaryProject;
 
-                    const techsDictionaries = {
-                        es: experiences_es,
-                        "pt-br": experiences_pt,
-                    };
+							return {
+								...rest,
+								name: projectDictionary.name || id,
+								description:
+									projectDictionary.description ||
+									description,
+								technologies: project.technologies?.map(
+									(tech) => {
+										return {
+											...tech,
+											outro: projectDictionary.technologies?.find(
+												(t) => t.name === tech.name,
+											)?.outro,
+										};
+									},
+								),
+							} as Project;
+						}),
+			experiences: experiences_en.map((experience) => {
+				const { id, ...rest } = experience;
 
-                    const dictionary =
-                        techsDictionaries[
-                            lang as keyof typeof techsDictionaries
-                        ];
+				const techsDictionaries = {
+					es: experiences_es,
+					"pt-br": experiences_pt,
+				};
 
-                    const techDictionary =
-                        dictionary && dictionary.hasOwnProperty(id)
-                            ? (dictionary[id as keyof typeof dictionary] as {
-                                  name?: string;
-                              })
-                            : {};
+				const dictionary =
+					techsDictionaries[lang as keyof typeof techsDictionaries];
 
-                    return {
-                        ...rest,
-                        id: techDictionary.name || id,
-                    };
-                }),
-            },
-        },
-    }));
+				const localization = dictionary
+					? dictionary[id as keyof typeof dictionary]
+					: undefined;
+
+				return {
+					...rest,
+					id: localization ? localization.name : id,
+				} as Experience;
+			}),
+		},
+	}));
 }
 
 const { lang } = Astro.params;
-const { response } = Astro.props;
+const { projects, experiences } = Astro.props;
 ---
 
 <script>
@@ -149,8 +144,8 @@ const { response } = Astro.props;
     <Header />
     <main>
         <Home />
-        <Projects projects={response?.projects} lang={lang} client:load />
-        <Experiences experiences={response?.experiences} />
+        <Projects projects={projects} lang={lang} client:load />
+        <Experiences experiences={experiences} />
         <Contact />
     </main>
     <Footer />

@@ -83,7 +83,7 @@ async function toggleLike(slug: string, guestId: string) {
                 likedBy: true,
             },
         });
-    } else {
+    }
         return await prisma.post.update({
             where: {
                 slug: slug,
@@ -99,7 +99,6 @@ async function toggleLike(slug: string, guestId: string) {
                 likedBy: true,
             },
         });
-    }
 }
 
 export const PATCH: APIRoute = async ({ params, request }) => {

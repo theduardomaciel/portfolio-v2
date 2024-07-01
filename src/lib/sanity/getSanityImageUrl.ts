@@ -1,7 +1,7 @@
-import { useSanityClient, createImageBuilder } from 'astro-sanity';
+import { useSanityClient, createImageBuilder } from "astro-sanity";
 
 export const imageBuilder = createImageBuilder(useSanityClient());
 
-export default function getSanityImageURL(source: any) {
-    return imageBuilder.image(source).auto('format').fit('max');
+export default function getSanityImageURL(source: unknown) {
+	return imageBuilder.image(source).auto("format").fit("max");
 }
