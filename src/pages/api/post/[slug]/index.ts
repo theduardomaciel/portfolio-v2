@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import prisma from "src/lib/prisma";
 
-export async function getPostDataBySlug(slug: string) {
+export async function getPostStatsBySlug(slug: string) {
     try {
         const post = await prisma.post.upsert({
             where: {
@@ -38,7 +38,7 @@ export const GET: APIRoute = async ({ params, request }) => {
     }
 
     try {
-        const post = getPostDataBySlug(slug);
+        const post = getPostStatsBySlug(slug);
 
         return new Response(JSON.stringify(post), {
             status: 200,

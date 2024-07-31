@@ -1,5 +1,5 @@
 ---
-import Svg from "@jasikpark/astro-svg-loader";
+import Icon from "@/components/Icon.astro";
 import SocialMedia from "../SocialMedia.astro";
 
 import LanguagePicker from "./subcomponents/LanguagePicker";
@@ -13,7 +13,7 @@ const t = useTranslations(lang).footer;
 ---
 
 <script>
-    import type NowPlaying from "src/lib/types/nowplaying";
+    import type NowPlaying from "@/types/nowplaying";
     import { getLangFromUrl, useTranslations } from "@/i18n/utils";
     import type { translations } from "@/i18n/utils";
 
@@ -68,10 +68,8 @@ const t = useTranslations(lang).footer;
                 <p class="info">{t.current_listening}</p>
                 <div class="currentPlaying">
                     <div class="songTitleHolder">
-                        <Svg
-                            src={import(
-                                "@/public/icons/enterprises/spotify.svg?raw"
-                            )}
+                        <Icon
+                            name={"enterprises/spotify"}
                             aria-label={"Spotify Logo"}
                         />
                         <a target="_blank" id="songTitle" class="songTitle"
@@ -82,7 +80,10 @@ const t = useTranslations(lang).footer;
                 </div>
             </div>
             <div class="contactInfo">
-                <SocialMedia />
+                <SocialMedia excludeList={{
+                    twitter: true,
+                    email: true,
+                }} />
             </div>
         </div>
         <div class="row2">

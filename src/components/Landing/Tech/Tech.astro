@@ -1,0 +1,100 @@
+---
+import "@/styles/tech.css";
+
+import AstronautDeco from "@/components/Landing/AstronautDeco.astro";
+import Tag from "@/components/Landing/Tech/Tag.astro";
+
+interface Props {
+	tech: TechSection[];
+}
+
+import { useTranslations } from "@/i18n/utils";
+import type { translations } from "@/i18n/utils";
+import type { TechSection } from "src/types/tech";
+
+const { lang } = Astro.params;
+const { tech } = Astro.props;
+
+const t = useTranslations(lang as keyof typeof translations).tech;
+---
+
+<section class={`tech section wrapper`} id="tech">
+    <header>
+        <p>{t.up_title},</p>
+        <h2>{t.title}</h2>
+        <p>
+            {t.subtitle}
+        </p>
+    </header>
+    <div class="content">
+        <ul id="techsList" class="techsList">
+            {
+                tech?.map((techSection) => (
+                        <li class="techSection">
+                            <Tag title={techSection.id} />
+                            <ul class="techs">
+                                {techSection.techs &&
+                                    techSection.techs.map((tech) => {
+                                        const splitTechSection =
+                                            tech.experienceSince.split("/");
+
+                                        const experienceDate = new Date(
+                                            parseInt(splitTechSection[1]),
+                                            parseInt(splitTechSection[0]),
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ).getTime();
+                                        const timeSinceTechSection =
+                                            Date.now() - experienceDate;
+                                        const experienceInMonths =
+                                            timeSinceTechSection / 2592000000;
+                                        const convertedTechSection = Math.round(
+                                            experienceInMonths > 12
+                                                ? experienceInMonths / 12
+                                                : experienceInMonths
+                                        );
+                                        const monthsOrYears =
+                                            experienceInMonths > 12
+                                                ? convertedTechSection !== 1
+                                                    ? t.units.years
+                                                    : t.units.year
+                                                : convertedTechSection !== 1
+                                                ? t.units.months
+                                                : t.units.month;
+
+                                        return (
+                                            <li class="tech">
+                                                <div class="techIcon">
+                                                    <img
+                                                        width={100}
+                                                        height={100}
+                                                        loading="lazy"
+                                                        src={tech.icon_url}
+                                                        alt={`Tech (${tech.name}) icon`}
+                                                    />
+                                                </div>
+                                                <div class="techDescription">
+                                                    <p>{tech.name} </p>
+                                                    <p>
+                                                        +{convertedTechSection}{" "}
+                                                        {`${monthsOrYears}`}{" "}
+                                                        {t.experience}
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        );
+                                    })}
+                            </ul>
+                        </li>
+                    ))
+            }
+        </ul>
+        <div class="column2">
+            <AstronautDeco />
+            <div class="overlay"></div>
+        </div>
+    </div>
+</section>

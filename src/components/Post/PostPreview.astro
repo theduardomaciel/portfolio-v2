@@ -1,49 +1,50 @@
 ---
-import Svg from "@jasikpark/astro-svg-loader";
+import Icon from "@/components/Icon.astro";
+
 import { getLangFromUrl } from "@/i18n/utils";
-import type { PostTag } from "src/lib/sanity/getTagsFromPost";
-import sanity from "src/lib/sanity/portableText";
+import { getTitleFromSlug } from "@/lib/blog";
+import { getReadingTime } from "@/utils/index";
 
-const { post, tags, isMinimal } = Astro.props;
+// Types
+import type { CollectionEntry } from "astro:content";
 
-const date = new Date(post.publishedAt);
-const formattedDate = date.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-});
-
-function getReadingTime(text: string) {
-    const wordPerMinute = 225;
-    const words = text.trim().split(/\s+/).length;
-    const time = Math.ceil(words / wordPerMinute);
-    return time;
+interface Props {
+	post: CollectionEntry<"blog">;
+	tags: string[];
+	isMinimal?: boolean;
+	isLogged?: boolean;
+	hasMarked?: boolean;
+	highPriority?: boolean;
 }
-const postBody = sanity(post.body)
-    .replace(/\s*\<.*?\>\s*/g, "")
-    .replace(new RegExp("&" + "#" + "x27;", "g"), "'");
 
-const readTime = getReadingTime(postBody);
+const { post, tags, isMinimal, isLogged, hasMarked, highPriority } =
+	Astro.props;
+
+const date = new Date(post.data.publishedAt);
+const formattedDate = date.toLocaleDateString(undefined, {
+	year: "numeric",
+	month: "2-digit",
+	day: "2-digit",
+});
 
 const lang = getLangFromUrl(Astro.url);
 
-const title = post[`title_${lang?.replace("-", "_")}`] ?? post.title;
-
-const { isLogged, hasMarked, hightPriority } = Astro.props;
+const readTime = getReadingTime(post.body);
+const title = post.data.title;
 ---
 
 <li class={`postPreviewContainer ${isMinimal ? "isMinimal" : ""}`}>
     <a
-        rel={hightPriority ? "prefetch" : ""}
+        rel={highPriority ? "prefetch" : ""}
         class="postPreview"
-        href={`/${lang}/blog/${post.slug.current}`}
+        href={`/${lang}/blog/${getTitleFromSlug(post.slug)}`}
     >
         <header>
             {
                 !isMinimal && (
                     <ul class="tags">
-                        {tags.map((tag: PostTag) => {
-                            return <li>#{tag.title}</li>;
+                        {tags.map((tag) => {
+                            return <li>#{tag}</li>;
                         })}
                     </ul>
                 )
@@ -53,9 +54,9 @@ const { isLogged, hasMarked, hightPriority } = Astro.props;
             <h6>{title}</h6>
             <footer>
                 <div class="iconHolder">
-                    <Svg
+                    <Icon
                         width={18}
-                        src={import("@/public/icons/calendar.svg?raw")}
+                        name={"calendar"}
                         aria-label="Calendar icon"
                     />
                     <span>{formattedDate}</span>
@@ -65,22 +66,18 @@ const { isLogged, hasMarked, hightPriority } = Astro.props;
                         <div class="footer">
                             <p class="readTime">{readTime} min read</p>
                             {!hasMarked && (
-                                <Svg
+                                <Icon
                                     class="icon"
                                     fill={"var(--secondary-01)"}
-                                    src={import(
-                                        "@/public/icons/bookmark.svg?raw"
-                                    )}
+                                    name="bookmark"
                                     aria-label="Bookmark icon"
                                 />
                             )}
                             {hasMarked && (
-                                <Svg
+                                <Icon
                                     class="icon"
                                     fill={"var(--secondary-01)"}
-                                    src={import(
-                                        "@/public/icons/bookmark_filled.svg?raw"
-                                    )}
+                                    name="bookmark_filled"
                                     aria-label="Bookmark filled icon"
                                 />
                             )}

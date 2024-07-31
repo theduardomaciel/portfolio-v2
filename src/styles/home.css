@@ -37,7 +37,7 @@
 .home header p {
     font-family: "Roboto Serif Variable";
     font-size: 1.8rem;
-    width: 85%;
+    max-width: 50%;
 }
 
 .home .outro {
@@ -379,7 +379,7 @@
     }
 
     .home header p {
-        width: 100%;
+        max-width: 100%;
     }
 
     .home .blobContainer {

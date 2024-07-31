@@ -2,14 +2,14 @@ import { useRef, useState } from "react";
 import styles from "./buttons.module.css";
 
 // Icons
-import LikeFilled from "@/assets/icons/like_filled.svg?react";
-import LikeOutlined from "@/assets/icons/like.svg?react";
+import LikeFilled from "@/icons/like_filled.svg?react";
+import LikeOutlined from "@/icons/like.svg?react";
 
 import axios from "axios";
 
 // Types
 import type { Guest } from "@prisma/client";
-import type { SanityPost } from "@/types/post";
+import type { SanityPost } from "src/types/post";
 
 interface Props {
 	post: SanityPost;
@@ -31,9 +31,8 @@ export default function LikeButton({ guest, post, initialValue }: Props) {
 	return (
 		<button
 			type="button"
-			className={`button modern ${styles.button} ${
-				isActive ? `${styles.active} selected` : ""
-			}`}
+			className={`button modern ${styles.button} ${isActive ? `${styles.active} selected` : ""
+				}`}
 			style={{ width: "100%", paddingInline: "0px" }}
 			onClick={async () => {
 				setActive(!isActive);

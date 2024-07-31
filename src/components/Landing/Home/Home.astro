@@ -1,0 +1,138 @@
+---
+import "@/styles/home.css";
+
+import Icon from "@/components/Icon.astro";
+
+import Planet from "@/components/Landing/Home/Planet.astro";
+import SocialMedia from "@/components/SocialMedia.astro";
+import Starfield from "@/components/Landing/Home/Starfield.astro";
+import Blobs from "@/components/Landing/Home/Blobs.astro";
+import Rocket from "@/components/Landing/Home/Rocket.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+import { getCurrentAge } from "@/utils/date";
+
+const currentAge = getCurrentAge();
+---
+
+<section id="home" class="home">
+    <header>
+        <div
+            style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}
+        >
+            <h2 style={{ textTransform: "uppercase" }}>{t.home.title}</h2>
+            <Icon
+                class={"title"}
+                name={"visuals/title"}
+                aria-label="Eduardo Maciel"
+                width={300}
+                height={150}
+            />
+        </div>
+        <p>{t.home.subtitle.replace("{x}", currentAge.toString())}</p>
+
+        <SocialMedia 
+            excludeList={
+                {
+                    whatsapp: true,
+                    twitter: true,
+                    github: true
+                }
+            }
+        />
+
+        <!-- <a
+            href="https://github.com/theduardomaciel"
+            target="_blank"
+            class="button modern inverted"
+            style="padding-block: 1rem; padding-inline: 2rem;"
+        >
+            <Icon
+                name={"enterprises/github"}
+                aria-label="Github icon"
+            />
+            {t.home.action}
+        </a> -->
+
+        <div id="mouseScroll" class="mouseScroll">
+            <Icon
+                name={"mouse"}
+                aria-label="Mouse indicator for scrolling"
+            />
+            <Icon
+                class={"doubleArrow"}
+                name={"double_arrow"}
+                aria-label="Double arrow down"
+            />
+        </div>
+    </header>
+    <div class="blobContainer holder1">
+        <Planet classes="homePlanet" />
+        <div
+            class="blob blob1"
+            style={{ WebkitClipPath: `url(#blob1)`, clipPath: `url(#blob1)` }}
+        >
+            <picture>
+                <source
+                    type="image/avif"
+                    class="astronaut"
+                    width={239}
+                    height={239}
+                    draggable="false"
+                    srcset="/visual/astronaut.avif"
+                />
+                <img
+                    class="astronaut"
+                    width={239}
+                    height={239}
+                    draggable="false"
+                    src="/visual/astronaut.png"
+                    sizes="((max-width: 768px)) 119.5px,
+              (min-width: 769px) 239px"
+                    alt="Astronauta picture fallback"
+                />
+            </picture>
+            <Rocket classes={"rocket"} />
+            <Starfield />
+            <div class="blobBackground"></div>
+        </div>
+    </div>
+    <div class="blobContainer holder2">
+        <div
+            class="blob blob2"
+            style={{ WebkitClipPath: `url(#blob2)`, clipPath: `url(#blob2)` }}
+        >
+            <Icon
+                class={"stars"}
+                name={"visuals/stars"}
+                aria-label="Drawing of a group of stars"
+            />
+            <picture>
+                <source
+                    type="image/avif"
+                    class="astronaut"
+                    width={239}
+                    height={239}
+                    draggable="false"
+                    srcset="/visual/astronaut.avif"
+                />
+                <img
+                    class="astronaut"
+                    width={239}
+                    height={239}
+                    draggable="false"
+                    src="/visual/astronaut.png"
+                    alt="Astronauta picture fallback"
+                />
+            </picture>
+            <Rocket classes={"rocket2"} />
+            <Starfield />
+            <div class="blobBackground"></div>
+        </div>
+    </div>
+    <Blobs />
+</section>

@@ -91,6 +91,16 @@
     font-size: 2rem;
 }
 
+
+.info .buttonRow {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
 .info .moreInfo {
     font-family: "Inter Variable";
     font-weight: 600;
@@ -122,7 +132,14 @@
     align-items: center;
     justify-content: center;
 
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
     gap: 2rem;
+}
+
+.sectionDots ul::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, and Opera */
 }
 
 .sectionDots ul li div {
@@ -239,6 +256,18 @@
     transition: opacity 500ms ease-in;
 }
 
+.holder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    /* background-color: red; */
+
+    min-width: 40%;
+    max-width: 40%;
+}
+
 .statusHolder {
     display: flex;
     flex-direction: row;
@@ -323,7 +352,6 @@
 
     .projects .carrousel .info {
         align-items: flex-start;
-        width: 50%;
     }
 
     .projects .carrousel .info h4 {

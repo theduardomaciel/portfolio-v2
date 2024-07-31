@@ -6,15 +6,16 @@ import BlogHome from "@/layouts/BlogHome.astro";
 import Footer from "@/components/Footer/Footer.astro";
 import Header from "@/components/Header/Header.astro";
 
-import { getAllPosts, getAllTags } from "src/lib/sanity/api";
-import type { PostTag } from "src/lib/sanity/getTagsFromPost";
+import { getBlogPosts, getBlogTags } from "@/lib/blog";
 
-const posts = await getAllPosts();
-const tags = (await getAllTags()) as PostTag[];
+const { lang } = Astro.params;
+
+const posts = await getBlogPosts(lang);
+const tags = getBlogTags(posts);
 
 const seo = {
-    title: "Blog",
-    description: "The blog of my simple porfolio.",
+	title: "Blog",
+	description: "The blog of my simple porfolio.",
 };
 
 export const prerender = false;

@@ -9,11 +9,12 @@
 			"@/i18n/*": ["i18n/*"],
 			"@/components/*": ["src/components/*"],
 			"@/styles/*": ["src/styles/*"],
-			"@/assets/*": ["src/assets/*"],
+			"@/icons/*": ["src/icons/*"],
 			"@/utils/*": ["src/utils/*"],
 			"@/layouts/*": ["src/layouts/*"],
-			"@/types/*": ["src/lib/types/*"],
-			"@/api/*": ["src/pages/api/*"]
+			"@/types/*": ["src/types/*"],
+			"@/api/*": ["src/pages/api/*"],
+			"@/lib/*": ["src/lib/*"]
 		}
 	}
 }

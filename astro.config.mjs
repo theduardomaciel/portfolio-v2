@@ -1,22 +1,13 @@
 import { defineConfig } from "astro/config";
-
 import svgr from "vite-plugin-svgr";
-import sanity from "astro-sanity";
 import vercel from "@astrojs/vercel/serverless";
-
 import react from "@astrojs/react";
+import mdx from "@astrojs/mdx";
 
+// https://astro.build/config
 export default defineConfig({
 	site: "https://theduardomaciel.vercel.app/",
-	integrations: [
-		react(),
-		sanity({
-			projectId: "0jclcbcz",
-			dataset: "production",
-			apiVersion: "v2023-01-01",
-			useCdn: true,
-		}),
-	],
+	integrations: [react(), mdx()],
 	prefetch: true,
 	output: "server",
 	adapter: vercel({
@@ -24,6 +15,10 @@ export default defineConfig({
 		functionPerRoute: false,
 	}),
 	vite: {
-		plugins: [svgr()],
+		plugins: [
+			svgr({
+				include: "**/*.svg?react",
+			}),
+		],
 	},
 });

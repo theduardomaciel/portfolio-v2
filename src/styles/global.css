@@ -258,6 +258,15 @@ html[data-theme="light"] .deco {
     filter: invert();
 }
 
+::selection {
+    color: var(--secondary-01);
+    background: var(--primary-01)
+}
+
+[astro-icon] {
+	height: auto;
+}
+
 @media (min-width: 1024px) {
     :root {
         --margin: 12.5rem;

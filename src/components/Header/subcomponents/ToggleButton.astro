@@ -1,5 +1,5 @@
 ---
-import Svg from "@jasikpark/astro-svg-loader";
+import Icon from "@/components/Icon.astro";
 ---
 
 <script>
@@ -29,14 +29,14 @@ import Svg from "@jasikpark/astro-svg-loader";
 </script>
 
 <button type="button" class="toggleButton" name={"Menu button"}>
-    <Svg
+    <Icon
         class={"close"}
-        src={import("@/public/icons/close.svg?raw")}
+        name="close"
         aria-label="Menu close button"
     />
-    <Svg
+    <Icon
         class={"open"}
-        src={import("@/public/icons/menu.svg?raw")}
+        name="menu"
         aria-label="Menu open button"
     />
 </button>

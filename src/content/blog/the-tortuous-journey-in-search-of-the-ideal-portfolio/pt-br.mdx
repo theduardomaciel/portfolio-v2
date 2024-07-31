@@ -1,0 +1,101 @@
+---
+title: A tortuosa jornada em busca do portfólio ideal
+description: To-do
+tags: [web, development, astro]
+publishedAt: 2024-03-22
+---
+
+**Dar o pontapé inicial e começar a desenvolver algo é difícil.**
+
+Requer muita pesquisa e muita mudança de planos ao longo do processo de descoberta de novas ferramentas e métodos mais eficientes de como fazer aquilo que é desejado.
+
+Durante o processo de desenvolvimento deste portfólio, deparei-me com diversos impasses que se colocaram em meio ao meio caminho enquanto realizava as decisões que necessitava para progredir com o andamento do projeto.
+
+Desde a prototipação do [design no Figma](https://www.figma.com/file/c28YJrimbyPnhysnhSpVBe/Portfolio?node-id=0%3A1&t=dkfzGAtQDVrxNoEO-1) até o [produto final](https://theduardomaciel.vercel.app/), totalmente programado e interativo, percebi diversos pontos chaves que definiram o resultado e que, mesmo não resultando em algo perfeito, performaram algo satisfatório.
+
+Todos nós temos nossos padrões pessoais de qualidade, isso é fato, portanto, minha insatisfação com a primeira versão do site se justificava pelo péssimo desempenho que a página performava.
+
+Tal inquietação foi despertada durante o período de fim de ano, em que estamos pondo metas no papel e projetando nossas expectativas para o futuro. Estava decidido a implementar um blog no portfólio, junto a todas as melhorias de performance que esperava.
+
+**Mas que ferramenta utilizar para criar um site performático e utilizar a maior parte do CSS e do JavaScript já escrito anteriormente?**
+
+> E foi aí que começou a tortuosa jornada.
+
+Primeiros passos com o CRA
+--------------------------
+
+O primeiro framework escolhido foi o atualmente deprecado: [Create React App](https://create-react-app.dev/).
+
+A escolha da biblioteca, React, para mim foi óbvia.
+
+Possuindo amplo uso ao longo de todo o desenvolvimento web, desenvolver o portfólio com ela me pareceu a ideia mais lógica, e na situação do momento, utilizar o Create React App, por ser diretamente do Facebook, me parecia uma boa ideia.
+
+Após certo tempo de desenvolvimento com o CRA, no entanto, fui percebendo alguns pontos que me incomodaram e me fizeram migrar para outra ferramenta, os quais vou citar abaixo:
+
+*   Ausência de suporte de primeira classe para Typescript
+*   Compilação e desempenho lentos
+*   Simplificação exagerada do uso de compiladores como Babel e Webpack que são utilizados obrigatoriamente pelo (e podem acabar confundindo novos programadores que não possuem total conhecimento acerca do tópico)`react-scripts`
+*   Possibilidade única de desenvolvimento com Client Side Rendering (CSR)
+*   Disponibilidade de outros frameworks mais leves e competitivos no mercado
+
+Pondo à mesa todos os pontos que encontrei, comecei a pesquisar mais acerca de qual outro framework poderia substituir o CRA e encontrei um que se destacou entre todos os outros, por sua extrema leveza: o Vite.
+
+Migrando para o Vite
+--------------------
+
+A utilização do [Vite](https://vitejs.dev/), após sua descoberta, pareceu óbvia para mim. Rápido, mínimo e integrado a minha antiga _codebase_, soava perfeito.
+
+E realmente, o Vite é realmente uma opção ótima para aqueles que buscam criar um site simples e estático, e foi assim até o início desse ano. No entanto, a ambição de implementar um novo sistema de postagens e de resolver todos os problemas (que envolviam em sua grande parte a decoração da página inicial) não parecia ser suficiente para o framework.
+
+Deixo aqui bem claro que não estou desincentivando o uso da ferramenta, pelo contrário, visto que a descoberta do Astro, o qual usa por trás dos panos Vite, abriu meus olhos e me pôs em uma luta interna pela decisão entre outro competidor, no qual também já havia desenvolvido aplicações antes: Next.js.
+
+Astro vs Next.js
+----------------
+
+Neste contexto tinha que decidir entre duas opções:
+
+1.  a permanência em um certo comodismo ao utilizar o [Next](https://nextjs.org/) em outro projeto
+2.  a aderência ao [Astro](https://astro.build/) e suas novas funcionalidades que iam requerem certo esforço em migrar parte da base de código para um novo formato.
+
+Ambas as alternativas eram realmente interessantes pois possuíam suporte ao meu código anteriormente escrito (mesmo que algumas mudanças fossem necessárias) e tinham suporte para Server Side Rendering (SSR) e Static Site Generation (SSG).
+
+Tenho que admitir que não resisti ao meu comodismo e acabei optando por testar como seria o desenvolvimento do portfólio no Next 13, o qual durante o momento que escrevo isso ainda está em Beta, mas me parecia extremamente promissor.
+
+Voltando ao Next.js
+-------------------
+
+No começo, pensei que se trataria de uma conversão simples: mudar alguns arquivos de lugar e repensar como iria lidar com a mudança de tema, nível de qualidade e linguagem.
+
+> Infelizmente, nem tudo foi um mar de rosas.
+
+Grande parte disso não foi de responsabilidade do Next, mas sim do nível em que se encontrava o código do projeto o qual havia iniciado literalmente anos atrás.
+
+A bagunça no CSS me levou a reescrever como o Header da página inicial funcionava e me possibilitou otimizar grande parte dos breakpoints entre mobile e desktop que estavam bastante desarrumados.
+
+O JavaScript não foi tanto problema, já que tinha sido escrito em React, ao menos por enquanto.
+
+A implementação de temas se tornou um pouco mais complicada, tendo em vista que agora fazia uso de Server Side Rendering (SSR) para carregar as páginas.
+
+Durante certo período de desânimo, após obter resultados de performance negativos ao pôr o site no Lighthouse, decidi reavaliar o Astro.
+
+**_E foi nesse momento em que novamente fiquei empolgado com o que poderia ser feito dali em diante._**
+
+A escolha final: Astro
+----------------------
+
+E chegamos onde estamos agora.
+
+Portar o código para o Astro não foi uma tarefa fácil, mas também não foi tão difícil quanto esperava.
+
+Migrar grande parte do código em React para arquivos realmente resultaram em uma performance bastante agradável, e a utilização do conceito de Ilhas do Astro também auxiliaram em um desempenho melhor.`.astro`
+
+Após rodar diversos testes de performance no Lighthouse e buscar otimizar o máximo possível dos arquivos e das dependências da aplicação, permaneço em busca de obter a nota máxima de desempenho, ao passo que otimizo o código da aplicação e a expando com novas funções e animações.
+
+Conclusão
+---------
+
+Novos posts serão escritos discutindo tudo aquilo que achar de mais interessante acerca de soluções para problemas corriqueiros que sejam encontrados durante o desenvolvimento de minhas aplicações.
+
+Sejam estes problemas como lidar como armazenamento de dados ou a otimização de interfaces, estarei aqui para discuti-los e encontrar a melhor solução para eles.
+
+> Até um próximo artigo!

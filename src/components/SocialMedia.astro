@@ -1,116 +1,101 @@
 ---
-import Svg from "@jasikpark/astro-svg-loader";
+import Icon from "@/components/Icon.astro";
 
 type Props = {
-    excludeInstagram?: boolean;
-    excludeTwitter?: boolean;
-    excludeEmail?: boolean;
-    excludeWhatsApp?: boolean;
-    excludeGithub?: boolean;
-    excludeLinkedin?: boolean;
-    classes?: string;
-    style?: string;
+	excludeList?: {
+		instagram?: boolean;
+		twitter?: boolean;
+		email?: boolean;
+		whatsapp?: boolean;
+		github?: boolean;
+		linkedin?: boolean;
+	};
 };
 
-const {
-    excludeInstagram,
-    excludeTwitter,
-    excludeEmail,
-    excludeWhatsApp,
-    excludeGithub,
-    excludeLinkedin,
-    classes,
-    style,
-} = Astro.props;
+const { excludeList } = Astro.props as Props;
 ---
 
-<div class={`social ${classes}`} style={style}>
+<div class={"social"}>
     {
-        !excludeWhatsApp && (
+        !excludeList?.whatsapp && (
             <a
                 title="WhatsApp"
                 target="_blank"
                 href="https://api.whatsapp.com/send?phone=5582988299223&text=Want%20to%20develop%20an%20awesome%20project?%20Contact%20me%20directly%20so%20we%20can%20talk%20about%20it%20:)"
             >
-                <Svg
-                    class={"icon"}
-                    src={import("@/public/icons/enterprises/whatsapp.svg?raw")}
+                <Icon
+                    name={"enterprises/whatsapp"}
                     aria-label="WhatsApp icon"
                 />
             </a>
         )
     }
     {
-        !excludeInstagram && (
+        !excludeList?.instagram && (
             <a
                 title="Instagram"
                 href="https://instagram.com/theduardomaciel"
                 target="_blank"
             >
-                <Svg
-                    class={"icon outlined"}
-                    src={import("@/public/icons/enterprises/instagram.svg?raw")}
+                <Icon
+                    name="enterprises/instagram"
                     aria-label="Instagram icon"
                 />
             </a>
         )
     }
     {
-        !excludeTwitter && (
+        !excludeList?.twitter && (
             <a
                 title="Twitter/X"
                 href="https://twitter.com/theduardomaciel"
                 target="_blank"
             >
-                <Svg
-                    class={"icon twitter"}
-                    src={import("@/public/icons/enterprises/twitter.svg?raw")}
+                <Icon
+                    name={"enterprises/twitter"}
                     aria-label="Twitter icon"
                 />
             </a>
         )
     }
     {
-        !excludeEmail && (
+        !excludeList?.email && (
             <a
                 title="E-mail"
                 href="mailto:eduardomacielbr@gmail.com"
                 target="_blank"
             >
-                <Svg
-                    class={"icon"}
-                    src={import("@/public/icons/mail.svg?raw")}
+                <Icon
+                    name={"email"}
                     aria-label="E-mail icon"
                 />
             </a>
         )
     }
     {
-        !excludeLinkedin && (
-            <a
-                title="Linkedin"
-                href="https://github.com/theduardomaciel"
-                target="_blank"
-            >
-                <Svg
-                    class={"icon"}
-                    src={import("@/public/icons/enterprises/linkedin.svg?raw")}
-                    aria-label="E-mail icon"
-                />
-            </a>
-        )
-    }
-    {
-        !excludeGithub && (
+        !excludeList?.github && (
             <a
                 title="Github"
                 href="https://github.com/theduardomaciel"
                 target="_blank"
             >
-                <Svg
-                    class={"icon"}
-                    src={import("@/public/icons/enterprises/github.svg?raw")}
-                    aria-label="E-mail icon"
+                <Icon
+                    name="enterprises/github"
+                    aria-label="GitHub icon"
+                />
+            </a>
+        )
+    }
+    {
+        !excludeList?.linkedin && (
+            <a
+                title="LinkedIn"
+                href="https://www.linkedin.com/in/theduardomaciel/"
+                target="_blank"
+            >
+                <Icon
+                    name={"enterprises/linkedin"}
+                    aria-label="LinkedIn icon"
                 />
             </a>
         )
@@ -134,20 +119,11 @@ const {
         justify-content: center;
     }
 
-    .icon {
+    [data-icon] {
         cursor: pointer;
     }
 
-    .icon path {
-        fill: var(--primary-01);
-    }
-
-    .outlined path {
-        stroke: var(--primary-01);
-    }
-
-    .twitter path {
-        fill: var(--primary-01);
-        stroke: var(--primary-01);
+    [data-icon] {
+        color: var(--primary-01);
     }
 </style>

@@ -1,164 +1,164 @@
 {
-    "nav": {
-        "home": "Início",
-        "projects": "Projetos",
-        "tech": "Tecnologias",
-        "theme": {
-            "system": "Sistema",
-            "light": "Claro",
-            "dark": "Escuro"
-        },
-        "lod": {
-            "high": "Alto",
-            "low": "Baixo"
-        }
-    },
-    "home": {
-        "title": "oi, oi! Me chamo",
-        "subtitle": "Sou um designer e engenheiro de software de 18 anos em constante aprendizado.",
-        "action": "Dar uma olhada no Github",
-        "outro": "(atualmente cursando Ciência da Computação! 🎉)"
-    },
-    "projects": {
-        "title": "Projetos",
-        "carousel": {
-            "status": {
-                "COMPLETED": "Finalizado",
-                "WORK_IN_PROGRESS": "Em Andamento",
-                "PAUSED": "Interrompido",
-                "SKETCH": "Rascunho",
-                "ARCHIVED": "Arquivado",
-                "OUTDATED": "Obsoleto"
-            },
-            "since": "Desde",
-            "button": "Ver Projeto",
-            "expand": "Expandir",
-            "collapse": "Recolher"
-        },
-        "info": {
-            "title": "Tecnologias utilizadas para construir os serviços da aplicação",
-            "frontend": "Frontend",
-            "backend": "Backend",
-            "database": "Banco de Dados",
-            "api": "API",
-            "mobile": "Mobile",
-            "github": "Ver outros repositórios"
-        }
-    },
-    "tech": {
-        "up_title": "e por fim",
-        "title": "tecnologias",
-        "subtitle": "Em minha jornada pessoal, trabalhei com algumas tecnologias, e aqui elas estão:",
-        "units": {
-            "month": "mês",
-            "months": "meses",
-            "year": "ano",
-            "years": "anos"
-        },
-        "experience": "de experiência"
-    },
-    "contact": {
-        "title": "Tem uma ideia em mente?",
-        "subtitle": "Insira seu e-mail para que eu possa entrar em contato!",
-        "button": "Entrar em contato",
-        "input": {
-            "placeholder": {
-                "email": "Insira seu e-mail",
-                "valid_email": "Insira um e-mail válido",
-                "pending": "Aguenta um pouquinho..."
-            }
-        },
-        "return_button": "Voltar ao início",
-        "success": {
-            "title": "Uhu! Deu tudo certo! ✅",
-            "subtitle": "Muito obrigado pela sua mensagem! Irei te responder assim que puder.",
-            "opposite": "Mas por enquanto...",
-            "check_social": "Você pode dar uma olhada nas minhas redes sociais para saber um pouco mais sobre meu trabalho (desculpe pela falta de posts!)",
-            "by_the_way": "Aliás, caso precise de uma resposta urgente",
-            "addendum": "ou esteja ansioso e não queira esperar minha resposta!",
-            "dm_me": "você pode me mandar uma mensagem direta através de uma dessas redes abaixo:",
-            "thanks": "Desde já, muito obrigado pela sua escolha e atenção! ❤️"
-        },
-        "error": {
-            "title": "Opa! Parece que algo deu errado! ❌",
-            "subtitle": "Me desculpe, parece que algo deu errado enquanto sua mensagem era enviada. Por favor, tente novamente. Se o problema persistir, você pode entrar em contato comigo via uma das seguintes redes sociais:",
-            "thanks": "Desde já, muito obrigado pelo seu apoio e desculpas pelo problema 😊"
-        }
-    },
-    "footer": {
-        "love": "Feito com ❤️ por Eduardo Maciel.",
-        "fetching": "Buscando...",
-        "current_listening": "no momento estou ouvindo",
-        "not_listening": "não estou ouvindo nada no momento",
-        "locale": {
-            "title": "Idioma",
-            "languages": {
-                "en": "Inglês",
-                "pt-br": "Português (Brasil)",
-                "es": "Espanhol"
-            }
-        }
-    },
-    "blog": {
-        "title": "Blog",
-        "login": {
-            "title": "Quer salvar artigos para ler depois?\nAdicione-os à sua lista de leitura.",
-            "button": "Entrar com Github"
-        },
-        "tags": {
-            "all": "Ver todos",
-            "empty": "Parece que ainda não há nenhum post com essa tag!"
-        },
-        "reading_list": {
-            "title": "Lista de Leitura",
-            "empty": {
-                "title": "Está um pouco vazio aqui!",
-                "subtitle": "Adicione alguns artigos à sua lista de leitura para vê-los aqui."
-            }
-        },
-        "share": "Compartilhar",
-        "return_button": "Voltar ao início"
-    },
-    "404": {
-        "subtitle": "Esta página não existe ou sua funcionalidade ainda não foi implementada.",
-        "return_button": "Voltar ao início"
-    },
-    "status": {
-        "header": {
-            "title": "Status",
-            "subtitle": "Verifique o status atual das aplicações desenvolvidas e sua disponibilidade ao público"
-        },
-        "status": {
-            "ACTIVE": "On-line",
-            "INACTIVE": "Inativo",
-            "MAINTENANCE": "Em Manutenção"
-        },
-        "incident": {
-            "locations": "Serviços afetados",
-            "level": {
-                "NONE": "Todos os sistemas estão operando normalmente",
-                "MINOR": "Estamos enfrentando algumas instabilidades",
-                "MAJOR": "Estamos enfrentando alguns problemas maiores",
-                "CRITICAL": "Atualmente um problema está sendo investigado"
-            },
-            "logs": {
-                "tag": {
-                    "INVESTIGATING": "Investigando",
-                    "IDENTIFIED": "Identificado",
-                    "MONITORING": "Monitorando",
-                    "RESOLVED": "Resolvido"
-                }
-            }
-        },
-        "last_updated": "Atualizado há",
-        "second": "segundo",
-        "seconds": "segundos",
-        "minute": "minuto",
-        "minutes": "minutos",
-        "day": "dia",
-        "days": "dias",
-        "hour": "hora",
-        "hours": "horas",
-        "ago": ""
-    }
+	"nav": {
+		"home": "Início",
+		"projects": "Projetos",
+		"tech": "Tecnologias",
+		"theme": {
+			"system": "Sistema",
+			"light": "Claro",
+			"dark": "Escuro"
+		},
+		"lod": {
+			"high": "Alto",
+			"low": "Baixo"
+		}
+	},
+	"home": {
+		"title": "oi, oi! Me chamo",
+		"subtitle": "Sou um designer e engenheiro de software de {x} anos em constante aprendizado.",
+		"action": "Dar uma olhada no Github",
+		"outro": "(atualmente cursando Ciência da Computação! 🎉)"
+	},
+	"projects": {
+		"title": "Projetos",
+		"carousel": {
+			"status": {
+				"COMPLETED": "Finalizado",
+				"WORK_IN_PROGRESS": "Em Andamento",
+				"PAUSED": "Interrompido",
+				"SKETCH": "Rascunho",
+				"ARCHIVED": "Arquivado",
+				"OUTDATED": "Obsoleto"
+			},
+			"since": "Desde",
+			"button": "Ver Projeto",
+			"expand": "Expandir",
+			"collapse": "Recolher"
+		},
+		"info": {
+			"title": "Tecnologias utilizadas para construir os serviços da aplicação",
+			"frontend": "Frontend",
+			"backend": "Backend",
+			"database": "Banco de Dados",
+			"api": "API",
+			"mobile": "Mobile",
+			"github": "Ver outros repositórios"
+		}
+	},
+	"tech": {
+		"up_title": "e por fim",
+		"title": "tecnologias",
+		"subtitle": "Em minha jornada pessoal, trabalhei com algumas tecnologias, e aqui elas estão:",
+		"units": {
+			"month": "mês",
+			"months": "meses",
+			"year": "ano",
+			"years": "anos"
+		},
+		"experience": "de experiência"
+	},
+	"contact": {
+		"title": "Tem uma ideia em mente?",
+		"subtitle": "Insira seu e-mail para que eu possa entrar em contato!",
+		"button": "Entrar em contato",
+		"input": {
+			"placeholder": {
+				"email": "Insira seu e-mail",
+				"valid_email": "Insira um e-mail válido",
+				"pending": "Aguenta um pouquinho..."
+			}
+		},
+		"return_button": "Voltar ao início",
+		"success": {
+			"title": "Uhu! Deu tudo certo! ✅",
+			"subtitle": "Muito obrigado pela sua mensagem! Irei te responder assim que puder.",
+			"opposite": "Mas por enquanto...",
+			"check_social": "Você pode dar uma olhada nas minhas redes sociais para saber um pouco mais sobre meu trabalho (desculpe pela falta de posts!)",
+			"by_the_way": "Aliás, caso precise de uma resposta urgente",
+			"addendum": "ou esteja ansioso e não queira esperar minha resposta!",
+			"dm_me": "você pode me mandar uma mensagem direta através de uma dessas redes abaixo:",
+			"thanks": "Desde já, muito obrigado pela sua escolha e atenção! ❤️"
+		},
+		"error": {
+			"title": "Opa! Parece que algo deu errado! ❌",
+			"subtitle": "Me desculpe, parece que algo deu errado enquanto sua mensagem era enviada. Por favor, tente novamente. Se o problema persistir, você pode entrar em contato comigo via uma das seguintes redes sociais:",
+			"thanks": "Desde já, muito obrigado pelo seu apoio e desculpas pelo problema 😊"
+		}
+	},
+	"footer": {
+		"love": "Feito com ❤️ por Eduardo Maciel.",
+		"fetching": "Buscando...",
+		"current_listening": "no momento estou ouvindo",
+		"not_listening": "não estou ouvindo nada no momento",
+		"locale": {
+			"title": "Idioma",
+			"languages": {
+				"en": "Inglês",
+				"pt-br": "Português (Brasil)",
+				"es": "Espanhol"
+			}
+		}
+	},
+	"blog": {
+		"title": "Blog",
+		"login": {
+			"title": "Quer salvar artigos para ler depois?\nAdicione-os à sua lista de leitura.",
+			"button": "Entrar com Github"
+		},
+		"tags": {
+			"all": "Ver todos",
+			"empty": "Parece que ainda não há nenhum post com essa tag!"
+		},
+		"reading_list": {
+			"title": "Lista de Leitura",
+			"empty": {
+				"title": "Está um pouco vazio aqui!",
+				"subtitle": "Adicione alguns artigos à sua lista de leitura para vê-los aqui."
+			}
+		},
+		"share": "Compartilhar",
+		"return_button": "Voltar ao início"
+	},
+	"404": {
+		"subtitle": "Esta página não existe ou sua funcionalidade ainda não foi implementada.",
+		"return_button": "Voltar ao início"
+	},
+	"status": {
+		"header": {
+			"title": "Status",
+			"subtitle": "Verifique o status atual das aplicações desenvolvidas e sua disponibilidade ao público"
+		},
+		"status": {
+			"ACTIVE": "On-line",
+			"INACTIVE": "Inativo",
+			"MAINTENANCE": "Em Manutenção"
+		},
+		"incident": {
+			"locations": "Serviços afetados",
+			"level": {
+				"NONE": "Todos os sistemas estão operando normalmente",
+				"MINOR": "Estamos enfrentando algumas instabilidades",
+				"MAJOR": "Estamos enfrentando alguns problemas maiores",
+				"CRITICAL": "Atualmente um problema está sendo investigado"
+			},
+			"logs": {
+				"tag": {
+					"INVESTIGATING": "Investigando",
+					"IDENTIFIED": "Identificado",
+					"MONITORING": "Monitorando",
+					"RESOLVED": "Resolvido"
+				}
+			}
+		},
+		"last_updated": "Atualizado há",
+		"second": "segundo",
+		"seconds": "segundos",
+		"minute": "minuto",
+		"minutes": "minutos",
+		"day": "dia",
+		"days": "dias",
+		"hour": "hora",
+		"hours": "horas",
+		"ago": ""
+	}
 }

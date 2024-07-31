@@ -1,0 +1,97 @@
+---
+title: The tortuous journey in search of the ideal portfolio
+description: To-do
+tags: [web, development, astro]
+publishedAt: 2024-03-22
+---
+
+**Kicking things off and starting to develop something new is difficult.  
+**It requires a lot of research and a lot of changing plans along the way of discovering new tools and more efficient methods of how to do what you want.
+
+  
+During the development process of this portfolio, I came across several impasses that stood in the middle of the path while I made the decisions I needed to advance with the progress of the project.  
+From prototyping the [design in Figma](https://www.figma.com/file/c28YJrimbyPnhysnhSpVBe/Portfolio?node-id=0%3A1&t=dkfzGAtQDVrxNoEO-1) to the [final product](https://theduardomaciel.vercel.app/), fully programmed and interactive, I noticed several key points that defined the result and that, even though did not result in something perfect, performed something satisfactory.  
+  
+We all have our personal quality standards, that's a fact, so my dissatisfaction with the first version of my portfolio was justified by the poor performance that the site performed.  
+This concern was awakened during the year-end period, when we are putting goals on paper and projecting our expectations for the future.  
+I was determined to implement a blog in the portfolio, along with all the performance improvements I was hoping for a long time.  
+  
+**But what tool to use to create a performing website and use most of the CSS and JavaScript already written before?**
+
+> That's when the tortuous journey began.
+
+First steps with CRA
+--------------------
+
+The first framework chosen was the, currently deprecated one, **[Create React App](https://create-react-app.dev/).**  
+The choice of library, React, for me was obvious. Having wide use throughout the entire web development, developing the portfolio with it seemed to me the most logical idea, and in the context of that moment, using Create React App, as it was made directly by Facebook, now Meta, seemed like a good idea.
+
+  
+After some time of development with CRA, however, I noticed some points that bothered me and made me migrate to another tool, which I will mention below:
+
+*   Lack of first-class support for Typescript
+*   Slow compilation and performance
+*   Exaggerated simplification of the use of compilers such as Babel and Webpack that are mandatory for react-scripts _(and may end up confusing new programmers who do not have full knowledge about the topic)_
+*   Unique possibility of development with Client Side Rendering (CSR)
+*   Availability of other lighter and more competitive frameworks on the market
+
+Putting all the points I found to the table, I started to research more about which other framework could replace CRA. After some Googling around, I found one that stood out among all the others, for its extreme lightness: **Vite**.
+
+Migrating to Vite
+-----------------
+
+The use of [**Vite**](https://vitejs.dev/), after its discovery, seemed obvious to me. Fast, minimal and integrated into my old codebase, it sounded perfect.  
+  
+And really, Vite really is a great option for those looking to create a simple, static website, and it stayed like that until the beginning of this year.  
+  
+However, the ambition to implement a new blog system and solve all the old portfolio performance problems did not seem to be enough for the framework, so, the discovery of Astro, which uses Vite behind the scenes, opened my eyes and put me in an internal fight for the decision between another competitor, in which I had also developed applications before: Next.js.
+
+Astro vs Next.js
+----------------
+
+In this context, I had to decide between two options:
+
+1.  Stay in a certain complacency while using [Next](https://nextjs.org) in another project
+2.  Adherence to [Astro](https://astro.build) and its new features, what would require some effort in migrating part of the code base to a new format.
+
+Both alternatives were really interesting as they had support for my previously written code (even if some changes were needed) and had support for Server Side Rendering (SSR) and Static Site Generation (SSG).  
+  
+I must admit that I couldn't resist my complacency and ended up opting to test how the portfolio's development would be in Next 13, which at the time of writing is still in Beta but seems extremely promising.
+
+Coming back to Next.js
+----------------------
+
+At first, I thought it was going to be a simple conversion: move some files around and rethink how I was going to handle the changes of theme, quality level and language.  
+
+> Unfortunately, not everything was a bed of roses.
+
+  
+Much of this was not Next's responsibility, but rather the level of code for the project that had started literally years ago.  
+The CSS mess led me to rewrite how some elements worked and allowed me to optimize most of the breakpoints between mobile and desktop that were quite messed up.  
+JavaScript wasn't that much of an issue, as it was written in React, at least for now.  
+  
+Implementing themes became a bit more complicated, as it now made use of Server Side Rendering (SSR) to load pages.  
+During a period of despondency, after getting negative performance results from putting the site on _Lighthouse_, I've decided to re-evaluate Astro.  
+  
+**_And that's when I again got excited about what could be done from here._**
+
+The final choice: Astro
+-----------------------
+
+And we got to where we are now.  
+Porting the code to Astro wasn't an easy task, but it wasn't as difficult as I expected either.  
+  
+Migrating a large part of the React code to `.astro` files resulted in a very nice performance, and the use of the Astro Islands concept also helped in a better run speed and code organization.
+
+Amazingly, one of my biggest challenges was converting the way I imported svgs from Vite to Astro, which I was able to solve after a lot of research on the web and Discord.  
+Astro's final setup code turned out to be something quite simple:  
+  
+After running several performance tests in _Lighthouse_ and trying to optimize the application's files and dependencies as much as possible, I'm still looking to get the maximum performance score, but for now, the results are pretty satisfactory and promising, while I keep up optimizing the application's code and expanding it with new functions and animations.
+
+Conclusion
+----------
+
+New posts will be written discussing everything I find most interesting about solutions to common problems that are encountered during the development of my applications.  
+No matter what kind of problem or discovery it is, I'll be here to discuss and share my learnings about it.
+
+> Until a next article!

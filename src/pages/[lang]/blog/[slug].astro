@@ -2,7 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import "@/styles/post.css";
 
-import Svg from "@jasikpark/astro-svg-loader";
+import Icon from "@/components/Icon.astro";
 
 // Components
 import Footer from "@/components/Footer/Footer.astro";
@@ -14,67 +14,73 @@ import ShareButton from "@/components/Post/Buttons/ShareButton";
 import BookmarkButton from "@/components/Post/Buttons/BookmarkButton";
 
 import ArticleSchema from "@/components/seo/ArticleSchema.astro";
-import PortableText from "@/components/PortableText.astro";
 
 // Data
-import { getAllTags, getPostBySlug } from "src/lib/sanity/api";
-import getSanityImageURL from "src/lib/sanity/getSanityImageUrl";
-import getTagsFromPost from "src/lib/sanity/getTagsFromPost";
+import { getCollection } from "astro:content";
+import { getGuestFromId } from "@/api/guest";
 
-import { getPostDataBySlug } from "../../api/post/[slug]";
-import { getGuestFromId } from "../../api/guest/index";
+export const prerender = true;
 
-const { slug, lang } = Astro.params;
-const post = await getPostBySlug(slug as string);
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+	const blogEntries = await getCollection("blog");
 
-if (!post || !slug) {
+	return blogEntries.map((post) => ({
+		params: {
+			slug: post.slug.split("/")[0],
+			lang: post.slug.split("/")[1],
+		},
+		props: { post },
+	}));
+}
+
+// 2. For your template, you can get the entry directly from the prop
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+if (!post) {
 	return Astro.redirect("/404");
 }
 
-const postData = await getPostDataBySlug(slug);
-
-const allTags = await getAllTags();
-const tags = getTagsFromPost(allTags, post.categories);
+const tags = post.data.tags ?? [];
 
 const guestId = Astro.cookies.get("guest.id")?.value;
 const guest = await getGuestFromId(guestId as string);
 
 const likedPostsSlugs = guest?.likedPosts.map(
-	(likedPost: Post) => likedPost.slug,
+	(likedPost: PostStats) => likedPost.slug,
 );
-const hasLiked = likedPostsSlugs?.includes(post.slug.current);
+const hasLiked = likedPostsSlugs?.includes(post.slug);
 
 const markedPostsSlugs = guest?.readingList.map(
-	(postInList: Post) => postInList.slug,
+	(markedPost: PostStats) => markedPost.slug,
 );
-const hasMarked = markedPostsSlugs?.includes(post.slug.current);
-
-export const prerender = false;
+const hasMarked = markedPostsSlugs?.includes(post.slug);
 
 import { useTranslations } from "@/i18n/utils";
 import type { translations } from "@/i18n/utils";
-import type { Guest, Post } from "@prisma/client";
+import type { Guest, Post as PostStats } from "@prisma/client";
 
+import { getPostStatsBySlug } from "@/api/post/[slug]";
+
+const { lang, slug } = Astro.params;
 const t = useTranslations(lang as keyof typeof translations).blog;
 
-const title = post[`title_${lang?.replace("-", "_")}`] ?? post.title;
-const body = post[`body_${lang?.replace("-", "_")}`] ?? post.body;
+const postStats = await getPostStatsBySlug(slug);
 
-const date = new Date(post.publishedAt);
-const formattedDate = date.toLocaleDateString(lang, {
+const publishedAt = new Date(post.data.publishedAt);
+const formattedDate = publishedAt.toLocaleDateString(lang, {
 	year: "numeric",
 	month: "2-digit",
 	day: "2-digit",
 });
 
-const splittedBody = body.slice(0, 160);
+const splittedBody = post.body.slice(0, 160);
 
 const seo = {
-	title: title,
+	title: post.data.title,
 	description: splittedBody,
-	image: post.mainImage
-		? getSanityImageURL(post.mainImage).width(1200).url()
-		: undefined,
+	image: post.data.cover?.src ?? undefined,
 };
 ---
 
@@ -103,8 +109,8 @@ const seo = {
                 <div></div>
             </div>
             <a href={`/${lang}/blog`} class="back">
-                <Svg
-                    src={import("@/public/icons/left_arrow.svg?raw")}
+                <Icon
+                    name="left_arrow"
                     aria-label={"Back arrow"}
                 />
                 {t.return_button}
@@ -113,8 +119,8 @@ const seo = {
         <div class="holder">
             <div class="content">
                 <a href={`/${lang}/blog`} class="back desktop">
-                    <Svg
-                        src={import("@/public/icons/left_arrow.svg?raw")}
+                    <Icon
+                        name="left_arrow"
                         aria-label={"Back arrow"}
                     />
                     {t.return_button}
@@ -122,39 +128,39 @@ const seo = {
                 <header>
                     <section class="info">
                         <div class="iconHolder icon">
-                            <Svg
+                            <Icon
                                 width={16}
-                                src={import("@/public/icons/calendar.svg?raw")}
+                                name="calendar"
                                 aria-label={"Calendar icon"}
                             />
                             {formattedDate}
                         </div>
                         <div class="divisor"></div>
                         <div class="iconHolder">
-                            <Svg
+                            <Icon
                                 width={16}
-                                src={import("@/public/icons/view.svg?raw")}
+                                name="view"
                                 aria-label={"Eye icon"}
                             />
-                            {postData?.views || "--"}
+                            {postStats?.views || "--"}
                         </div>
                         <div class="divisor"></div>
                         <div class="iconHolder">
-                            <Svg
+                            <Icon
                                 width={16}
-                                src={import("@/public/icons/like.svg?raw")}
+                                name="like"
                                 aria-label={"Like (heart) icon"}
                             />
-                            {postData?.likedBy.length || "--"}
+                            {postStats?.likedBy.length || "--"}
                         </div>
                     </section>
-                    <h1>{title}</h1>
+                    <h1>{post.data.title}</h1>
                     <ul class="tags">
                         {
-                            tags.map((tag: any) => (
+                            tags.map((tag: string) => (
                                 <li>
-                                    <a href={`/blog/category/${tag.title}`} data-astro-prefetch>
-                                        #{tag.title}
+                                    <a href={`/blog/category/${tag}`} data-astro-prefetch>
+                                        #{tag}
                                     </a>
                                 </li>
                             ))
@@ -162,16 +168,16 @@ const seo = {
                     </ul>
                 </header>
                 <article class="post">
-                    <PortableText text={body} />
+                    <Content />
                 </article>
             </div>
             <aside>
                 <div class={`buttons ${!guestId ? "centralized" : ""}`}>
                     <button id="toggleAside" class="toggle">
-                        <Svg
+                        <Icon
                             width={16}
                             class={"chevron"}
-                            src={import("@/public/icons/chevron.svg?raw")}
+                            name="chevron_left"
                             aria-label={"Chevron icon"}
                         />
                     </button>
@@ -201,7 +207,7 @@ const seo = {
                     guest && guest.readingList.length > 0 ? (
                         <div class="container">
                             <h6>{t.reading_list.title}</h6>
-                            {post && post.categories && (
+                            {post && post.data.tags && (
                                 <PostPreview
                                     post={post}
                                     tags={tags}

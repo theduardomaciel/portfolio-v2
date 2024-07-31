@@ -10,7 +10,7 @@ import {
 	SelectValue,
 } from "@/components/ui/Select";
 
-import LanguageIcon from "@/assets/icons/language.svg?react";
+import LanguageIcon from "@/icons/language.svg?react";
 
 import { defaultLang, translations, useTranslations } from "@/i18n/utils";
 

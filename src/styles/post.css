@@ -283,6 +283,11 @@
     width: 100%;
 }
 
+.post .container p {
+    font-family: "Roboto";
+    font-size: 1.4rem;
+}
+
 .post .container.shareIntegrated {
     display: none;
 }
@@ -318,7 +323,7 @@
     width: 100%;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
     /* CLEANING SHARE DISPLAY */
     .post .container.shareIntegrated {
         display: flex;
