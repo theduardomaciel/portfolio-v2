@@ -116,6 +116,7 @@ const seo = {
                 {t.return_button}
             </a>
         </nav>
+        <!-- Content-->
         <div class="holder">
             <div class="content">
                 <a href={`/${lang}/blog`} class="back desktop">
@@ -171,7 +172,9 @@ const seo = {
                     <Content />
                 </article>
             </div>
+            <!-- Right Column -->
             <aside>
+               <div class="test">
                 <div class={`buttons ${!guestId ? "centralized" : ""}`}>
                     <button id="toggleAside" class="toggle">
                         <Icon
@@ -222,8 +225,10 @@ const seo = {
                         </div>
                     )
                 }
+               </div>
             </aside>
         </div>
+        <!-- Mobile Buttons -->
         <div class="container share">
             <div class="row">
                 {
