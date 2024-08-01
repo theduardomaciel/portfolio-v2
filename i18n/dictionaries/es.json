@@ -49,11 +49,10 @@
 		"up_title": "y finalmente",
 		"title": "tecnología",
 		"subtitle": "En mi trayectoria personal, he trabajado con algunas tecnologías, y aquí están:",
-		"units": {
-			"month": "mes",
-			"months": "meses",
-			"year": "año",
-			"years": "años"
+		"levels": {
+			"1": "Principiante",
+			"2": "Conocedor",
+			"3": "Experto"
 		},
 		"experience": "experiencia"
 	},

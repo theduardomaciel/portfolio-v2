@@ -4,12 +4,12 @@
 		"techs": [
 			{
 				"name": "C",
-				"experienceSince": "06/2023",
+				"experience_level": 2,
 				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/eeea6ea86b2fc11ac32f7779e2178428e9ce683f/c.svg"
 			},
 			{
 				"name": "Java",
-				"experienceSince": "06/2024",
+				"experience_level": 1,
 				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/01b5c8cb2a06025428cb61c18bc5a7d23b4bc517/java.svg"
 			}
 		]
@@ -19,12 +19,12 @@
 		"techs": [
 			{
 				"name": "React Native",
-				"experienceSince": "06/2021",
+				"experience_level": 2,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/react.svg"
 			},
 			{
 				"name": "Kotlin",
-				"experienceSince": "06/2024",
+				"experience_level": 1,
 				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/01b5c8cb2a06025428cb61c18bc5a7d23b4bc517/kotlin.svg"
 			}
 		]
@@ -34,22 +34,22 @@
 		"techs": [
 			{
 				"name": "HTML",
-				"experienceSince": "05/2022",
+				"experience_level": 3,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/html.svg"
 			},
 			{
 				"name": "CSS",
-				"experienceSince": "05/2022",
+				"experience_level": 3,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/css.svg"
 			},
 			{
 				"name": "JavaScript",
-				"experienceSince": "07/2020",
+				"experience_level": 3,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/javascript.svg"
 			},
 			{
 				"name": "TypeScript",
-				"experienceSince": "08/2022",
+				"experience_level": 3,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/typescript.svg"
 			}
 		]
@@ -59,17 +59,17 @@
 		"techs": [
 			{
 				"name": "Next.js",
-				"experienceSince": "05/2022",
+				"experience_level": 3,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/nextjs.svg"
 			},
 			{
 				"name": "Astro",
-				"experienceSince": "01/2023",
+				"experience_level": 2,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/astro.svg"
 			},
 			{
 				"name": "Node.js",
-				"experienceSince": "07/2020",
+				"experience_level": 2,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/nodejs.svg"
 			}
 		]
@@ -79,12 +79,12 @@
 		"techs": [
 			{
 				"name": "React",
-				"experienceSince": "06/2021",
+				"experience_level": 3,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/react.svg"
 			},
 			{
 				"name": "TailwindCSS",
-				"experienceSince": "01/2023",
+				"experience_level": 2,
 				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/03b71945919d4934500bdd0cfd661d55bc299a82/tailwindcss.svg"
 			}
 		]
@@ -94,27 +94,27 @@
 		"techs": [
 			{
 				"name": "Prisma",
-				"experienceSince": "05/2022",
+				"experience_level": 2,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/prisma.svg"
 			},
 			{
 				"name": "Drizzle",
-				"experienceSince": "05/2024",
+				"experience_level": 1,
 				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/4da35d1845a078121c3b9cf9c5a6279ac8649819/drizzle.svg"
 			},
 			{
 				"name": "PostgreSQL",
-				"experienceSince": "05/2022",
+				"experience_level": 1,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/postgresql.svg"
 			},
 			{
 				"name": "MySQL",
-				"experienceSince": "12/2022",
+				"experience_level": 1,
 				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/c02fcc38b2f42fff9c26e8dc7cba04f63adc9400/mysql.svg"
 			},
 			{
 				"name": "WatermelonDB",
-				"experienceSince": "02/2023",
+				"experience_level": 1,
 				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/1e7f2fc8cb5888dd69bae8e1c6adf78f038739db/watermelondb.svg"
 			}
 		]
@@ -124,12 +124,12 @@
 		"techs": [
 			{
 				"name": "Lua",
-				"experienceSince": "01/2019",
+				"experience_level": 3,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/lua.svg"
 			},
 			{
 				"name": "C#",
-				"experienceSince": "08/2022",
+				"experience_level": 1,
 				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/csharp.svg"
 			}
 		]

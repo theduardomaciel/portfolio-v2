@@ -5,6 +5,6 @@ export interface TechSection {
 
 export interface Tech {
 	name: string;
-	experienceSince: string;
+	experience_level: 1 | 2 | 3;
 	icon_url: string;
 }

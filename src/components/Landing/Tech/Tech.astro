@@ -3,6 +3,7 @@ import "@/styles/tech.css";
 
 import AstronautDeco from "@/components/Landing/AstronautDeco.astro";
 import Tag from "@/components/Landing/Tech/Tag.astro";
+import Level from "@/components/Landing/Tech/Level.astro";
 
 interface Props {
 	tech: TechSection[];
@@ -34,38 +35,7 @@ const t = useTranslations(lang as keyof typeof translations).tech;
                             <Tag title={techSection.id} />
                             <ul class="techs">
                                 {techSection.techs &&
-                                    techSection.techs.map((tech) => {
-                                        const splitTechSection =
-                                            tech.experienceSince.split("/");
-
-                                        const experienceDate = new Date(
-                                            parseInt(splitTechSection[1]),
-                                            parseInt(splitTechSection[0]),
-                                            1,
-                                            0,
-                                            0,
-                                            0,
-                                            0
-                                        ).getTime();
-                                        const timeSinceTechSection =
-                                            Date.now() - experienceDate;
-                                        const experienceInMonths =
-                                            timeSinceTechSection / 2592000000;
-                                        const convertedTechSection = Math.round(
-                                            experienceInMonths > 12
-                                                ? experienceInMonths / 12
-                                                : experienceInMonths
-                                        );
-                                        const monthsOrYears =
-                                            experienceInMonths > 12
-                                                ? convertedTechSection !== 1
-                                                    ? t.units.years
-                                                    : t.units.year
-                                                : convertedTechSection !== 1
-                                                ? t.units.months
-                                                : t.units.month;
-
-                                        return (
+                                    techSection.techs.map((tech) => (
                                             <li class="tech">
                                                 <div class="techIcon">
                                                     <img
@@ -73,20 +43,20 @@ const t = useTranslations(lang as keyof typeof translations).tech;
                                                         height={100}
                                                         loading="lazy"
                                                         src={tech.icon_url}
-                                                        alt={`Tech (${tech.name}) icon`}
+                                                        alt={`${tech.name} icon`}
                                                     />
                                                 </div>
                                                 <div class="techDescription">
                                                     <p>{tech.name} </p>
-                                                    <p>
-                                                        +{convertedTechSection}{" "}
-                                                        {`${monthsOrYears}`}{" "}
-                                                        {t.experience}
-                                                    </p>
+                                                    <div class="row">
+                                                        <Level level={tech.experience_level} />
+                                                        <p>{t.levels[tech.experience_level]}</p>
+                                                    </div>
                                                 </div>
                                             </li>
-                                        );
-                                    })}
+                                        )
+                                    )
+                                }
                             </ul>
                         </li>
                     ))

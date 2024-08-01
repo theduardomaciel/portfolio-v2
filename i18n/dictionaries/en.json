@@ -49,11 +49,10 @@
 		"up_title": "and finally",
 		"title": "tech",
 		"subtitle": "In my personal journey, I've worked with some technologies, and here they are:",
-		"units": {
-			"month": "month",
-			"months": "months",
-			"year": "year",
-			"years": "years"
+		"levels": {
+			"1": "Beginner",
+			"2": "Experienced",
+			"3": "Expert"
 		},
 		"experience": "experience"
 	},

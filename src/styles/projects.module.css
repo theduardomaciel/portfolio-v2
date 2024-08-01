@@ -263,9 +263,6 @@
     justify-content: flex-start;
 
     /* background-color: red; */
-
-    min-width: 40%;
-    max-width: 40%;
 }
 
 .statusHolder {
@@ -321,7 +318,10 @@
 }
 
 @media (min-width: 1024px) {
-    /*  PROJECTS  ========================================== */
+    .holder {
+    min-width: 40%;
+    max-width: 40%;
+    }
 
     .statusHolder {
         display: flex;

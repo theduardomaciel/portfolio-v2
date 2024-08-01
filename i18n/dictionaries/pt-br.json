@@ -49,11 +49,10 @@
 		"up_title": "e por fim",
 		"title": "tecnologias",
 		"subtitle": "Em minha jornada pessoal, trabalhei com algumas tecnologias, e aqui elas estão:",
-		"units": {
-			"month": "mês",
-			"months": "meses",
-			"year": "ano",
-			"years": "anos"
+		"levels": {
+			"1": "Iniciante",
+			"2": "Intermediário",
+			"3": "Experiente"
 		},
 		"experience": "de experiência"
 	},

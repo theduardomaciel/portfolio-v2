@@ -125,7 +125,7 @@ function Paginator({
 						<li
 							onClick={() => setProjectIndex(index)}
 							onKeyUp={() => setProjectIndex(index)}
-							key={project.name}
+							key={project.accent_color}
 						>
 							<div
 								style={{

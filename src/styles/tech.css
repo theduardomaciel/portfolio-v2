@@ -89,7 +89,16 @@ html[data-theme="light"] .techIcon img {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
+    gap: 1rem;
     /* max-width: 55%; */
+}
+
+.techDescription .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.6rem;
 }
 
 .techDescription p:nth-child(1) {
