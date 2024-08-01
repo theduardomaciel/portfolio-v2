@@ -90,6 +90,7 @@ html[data-theme="light"] .techIcon img {
     align-items: flex-start;
     justify-content: space-around;
     gap: 1rem;
+    width: 100%;
     /* max-width: 55%; */
 }
 
@@ -99,6 +100,13 @@ html[data-theme="light"] .techIcon img {
     align-items: center;
     justify-content: flex-start;
     gap: 1.6rem;
+    width: 100%;
+}
+
+.techDescription .row p {
+    width: 100%;
+    text-wrap: wrap;
+    word-break: break-all;
 }
 
 .techDescription p:nth-child(1) {
@@ -128,6 +136,8 @@ html[data-theme="light"] .techIcon img {
     font-family: "Roboto Serif Variable";
     font-style: normal;
     text-align: left;
+
+    width: 100%;
 }
 
 .techSection .tech p:nth-child(1) {
