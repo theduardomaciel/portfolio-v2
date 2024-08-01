@@ -47,10 +47,6 @@
     width: 100%;
 }
 
-.info {
-    position: relative;
-}
-
 .info .headerDecoration {
     position: absolute;
     top: -7.5%;
@@ -71,6 +67,7 @@
     font-style: normal;
     color: var(--primary-01);
 
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,6 +88,14 @@
     font-size: 2rem;
 }
 
+.info .buttonColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 1.8rem;
+}
 
 .info .buttonRow {
     display: flex;
@@ -317,10 +322,20 @@
     height: 27.5rem;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .info {
+        width: 100%;
+    }
+
+    .holder {
+        justify-content: center;
+    }
+}
+
 @media (min-width: 1024px) {
     .holder {
-    min-width: 40%;
-    max-width: 40%;
+        min-width: 40%;
+        max-width: 40%;
     }
 
     .statusHolder {
@@ -332,6 +347,10 @@
         justify-content: flex-start;
 
         height: 2.5rem;
+    }
+
+    .info .buttonColumn {
+        align-items: flex-start;
     }
 
     .info .infoHeader h3 {

@@ -85,7 +85,11 @@ export default function ProjectsCarousel({
 
 	const descriptions = projects.map((project) => {
 		return (
-			<m.div key={`description_${project.name}`} className={styles.info} {...column1Props}>
+			<m.div
+				key={`description_${project.name}`}
+				className={styles.info}
+				{...column1Props}
+			>
 				<div
 					style={{
 						background: `linear-gradient(90deg, rgba(${project.accent_color}, 0.65) 0%, rgba(${project.accent_color}, 0.25) 57.29%, rgba(${project.accent_color}, 0) 100%)`,
@@ -93,15 +97,26 @@ export default function ProjectsCarousel({
 					className={styles.headerDecoration}
 				/>
 				<div className={styles.infoHeader}>
-					<div className={styles.statusHolder} /* {...popTransitionProps} */>
+					<div
+						className={
+							styles.statusHolder
+						} /* {...popTransitionProps} */
+					>
 						{projectStatusIcon}
 						<div className={styles.separator} />
-						<p>{t.status[projectStatusString as keyof typeof t.status]}</p>
+						<p>
+							{
+								t.status[
+								projectStatusString as keyof typeof t.status
+								]
+							}
+						</p>
 						{project.year && (
 							<>
 								<div className={styles.dot} />
 								<p>
-									{project.status === "WORK_IN_PROGRESS" && t.since}{" "}
+									{project.status === "WORK_IN_PROGRESS" &&
+										t.since}{" "}
 									{project.year}
 								</p>
 							</>
@@ -112,13 +127,15 @@ export default function ProjectsCarousel({
 				</div>
 				<div
 					key={`$info_${project.name}`}
-					className={styles.info} /* {...popTransitionProps} */
+					className={styles.buttonColumn} /* {...popTransitionProps} */
 				>
-					<div
-						className={styles.buttonRow}
-					>
+					<div className={styles.buttonRow}>
 						{project.project_url && (
-							<a target={"_blank"} rel="noreferrer" href={project.project_url}>
+							<a
+								target={"_blank"}
+								rel="noreferrer"
+								href={project.project_url}
+							>
 								<button
 									type="button"
 									className="button inverted modern outline disabled"
@@ -135,37 +152,46 @@ export default function ProjectsCarousel({
 							</a>
 						)}
 						{project.figma_url && (
-							<a target={"_blank"} rel="noreferrer" href={project.figma_url}>
+							<a
+								target={"_blank"}
+								rel="noreferrer"
+								href={project.figma_url}
+							>
 								<FigmaIcon />
 							</a>
 						)}
 					</div>
-					{project.technologies && project.technologies.length >= 1 && (
-						<div
-							className={styles.moreInfo}
-							onClick={() => setMoreInfoExpanded(!isMoreInfoExpanded)}
-							onKeyUp={() => setMoreInfoExpanded(!isMoreInfoExpanded)}
-						>
-							<p style={{ textTransform: "uppercase" }}>
-								{isMoreInfoExpanded ? t.collapse : t.expand}
-							</p>
-							<DownArrow
-								fill="var(--primary-01)"
-								viewBox="0 0 24 24"
-								width={"2.4rem"}
-								height={"2.4rem"}
-								style={{
-									transform: isMoreInfoExpanded
-										? "rotate(180deg)"
-										: "rotate(0deg)",
-									transition: "0.35s",
-								}}
-							/>
-						</div>
-					)}
+					{project.technologies &&
+						project.technologies.length >= 1 && (
+							<div
+								className={styles.moreInfo}
+								onClick={() =>
+									setMoreInfoExpanded(!isMoreInfoExpanded)
+								}
+								onKeyUp={() =>
+									setMoreInfoExpanded(!isMoreInfoExpanded)
+								}
+							>
+								<p style={{ textTransform: "uppercase" }}>
+									{isMoreInfoExpanded ? t.collapse : t.expand}
+								</p>
+								<DownArrow
+									fill="var(--primary-01)"
+									viewBox="0 0 24 24"
+									width={"2.4rem"}
+									height={"2.4rem"}
+									style={{
+										transform: isMoreInfoExpanded
+											? "rotate(180deg)"
+											: "rotate(0deg)",
+										transition: "0.35s",
+									}}
+								/>
+							</div>
+						)}
 				</div>
 			</m.div>
-		)
+		);
 	});
 
 	const images = projects.map((project) => {
@@ -187,8 +213,8 @@ export default function ProjectsCarousel({
 					alt="Imagem representando o projeto"
 				/>
 			</m.picture>
-		)
-	})
+		);
+	});
 
 	return (
 		<LazyMotion features={domAnimation}>
