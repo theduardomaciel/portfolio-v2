@@ -22,8 +22,12 @@ interface Props {
 }
 
 export default function Projects({ projects, lang }: Props) {
-	const [projectIndex, setProjectIndex] = useState(0);
+	const [[projectIndex, direction], setPagination] = useState([0, 0]);
 	const [isMoreInfoExpanded, setMoreInfoExpanded] = useState(true);
+
+	const paginate = (newDirection: number) => {
+		setPagination([projectIndex + newDirection, newDirection]);
+	};
 
 	const t = useTranslations(lang as keyof typeof translations).projects;
 
@@ -38,14 +42,16 @@ export default function Projects({ projects, lang }: Props) {
 			<ProjectsCarousel
 				lang={lang}
 				projects={projects}
-				projectIndex={projectIndex}
+				pagination={[projectIndex, direction]}
+				paginate={paginate}
 				setMoreInfoExpanded={setMoreInfoExpanded}
 				isMoreInfoExpanded={isMoreInfoExpanded}
 			>
 				<Paginator
 					projects={projects}
 					projectIndex={projectIndex}
-					setProjectIndex={setProjectIndex}
+					paginate={paginate}
+					paginateTo={(index) => setPagination(value => [index, value[0] < index ? 1 : -1])}
 				/>
 			</ProjectsCarousel>
 
@@ -97,11 +103,13 @@ export default function Projects({ projects, lang }: Props) {
 function Paginator({
 	projects,
 	projectIndex,
-	setProjectIndex,
+	paginate,
+	paginateTo
 }: {
 	projects: Project[];
 	projectIndex: number;
-	setProjectIndex: (index: number) => void;
+	paginate: (newDirection: number) => void;
+	paginateTo: (index: number) => void;
 }) {
 	return (
 		<div className={styles.sectionDots}>
@@ -114,7 +122,7 @@ function Paginator({
 				fill="var(--primary-01)"
 				onClick={() => {
 					if (projectIndex > 0) {
-						setProjectIndex(projectIndex - 1);
+						paginate(-1);
 					}
 				}}
 			/>
@@ -123,8 +131,8 @@ function Paginator({
 					const isCurrentProject = index === projectIndex;
 					return (
 						<li
-							onClick={() => setProjectIndex(index)}
-							onKeyUp={() => setProjectIndex(index)}
+							onClick={() => paginateTo(index)}
+							onKeyUp={() => paginateTo(index)}
 							key={project.accent_color}
 						>
 							<div
@@ -149,7 +157,7 @@ function Paginator({
 				fill="var(--primary-01)"
 				onClick={() => {
 					if (projectIndex < projects.length - 1) {
-						setProjectIndex(projectIndex + 1);
+						paginate(1);
 					}
 				}}
 			/>

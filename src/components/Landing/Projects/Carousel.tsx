@@ -16,7 +16,7 @@ import SketchIcon from "@/icons/sketch.svg?react";
 import PauseIcon from "@/icons/pause.svg?react";
 
 // Types
-import type { Dispatch, SetStateAction } from "react";
+import { useLayoutEffect, type Dispatch, type ReactEventHandler, type SetStateAction } from "react";
 import type { Project } from "src/types/project";
 import type React from "react";
 
@@ -28,7 +28,8 @@ interface Props {
 	children?: React.ReactNode;
 	projects: Project[];
 	lang?: string;
-	projectIndex: number;
+	pagination: [number, number];
+	paginate: (newDirection: number) => void;
 	setMoreInfoExpanded: Dispatch<SetStateAction<boolean>>;
 	isMoreInfoExpanded: boolean;
 }
@@ -46,15 +47,53 @@ const column1Props = {
 	},
 } as MotionProps;
 
-const column2Props = {
-	initial: { opacity: 0 },
-	animate: { opacity: 1 },
-	exit: { opacity: 0 },
-	transition: {
-		ease: "easeInOut",
-		duration: 0.45,
+const variants = {
+	enter: (direction: number) => {
+		return {
+			x: direction > 0 ? 100 : -100,
+			opacity: 0
+		};
 	},
+	center: {
+		zIndex: 1,
+		x: 0,
+		opacity: 1
+	},
+	exit: (direction: number) => {
+		return {
+			zIndex: 0,
+			x: direction < 0 ? 100 : -100,
+			opacity: 0
+		};
+	}
+};
+
+const staticColumn2Props = {
+	variants: variants,
+	initial: "enter",
+	animate: "center",
+	exit: "exit",
+	transition: {
+		x: { type: "spring", stiffness: 300, damping: 50 },
+		opacity: { duration: 0.45 },
+		delay: 1,
+	},
+	drag: "x",
+	dragConstraints: { left: 0, right: 0 },
+	dragElastic: 1,
 } as MotionProps;
+
+/**
+ * Experimenting with distilling swipe offset and velocity into a single variable, so the
+ * less distance a user has swiped, the more velocity they need to register as a swipe.
+ * Should accomodate longer swipes and short flicks without having binary checks on
+ * just distance thresholds and velocity > 0.
+ * @author @framer
+ */
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset: number, velocity: number) => {
+	return Math.abs(offset) * velocity;
+};
 
 const status_info = {
 	COMPLETED: <FinishedIcon />,
@@ -69,10 +108,25 @@ export default function ProjectsCarousel({
 	children,
 	projects,
 	lang,
-	projectIndex,
+	pagination: [projectIndex, direction],
+	paginate,
 	setMoreInfoExpanded,
 	isMoreInfoExpanded,
 }: Props) {
+	const column2Props = {
+		...staticColumn2Props,
+		custom: direction,
+		onDragEnd: (e, { offset, velocity }) => {
+			const swipe = swipePower(offset.x, velocity.x);
+
+			if (swipe < -swipeConfidenceThreshold) {
+				paginate(1);
+			} else if (swipe > swipeConfidenceThreshold) {
+				paginate(-1);
+			}
+		},
+	} as MotionProps;
+
 	const projectStatusString = Object.keys(status_info).filter(
 		(status) => status === projects[projectIndex].status,
 	)[0];
@@ -86,7 +140,7 @@ export default function ProjectsCarousel({
 	const descriptions = projects.map((project) => {
 		return (
 			<m.div
-				key={`description_${project.name}`}
+				key={`description_${project.id}`}
 				className={styles.info}
 				{...column1Props}
 			>
@@ -126,7 +180,7 @@ export default function ProjectsCarousel({
 					<h4>{project.description}</h4>
 				</div>
 				<div
-					key={`$info_${project.name}`}
+					key={`$info_${project.id}`}
 					className={styles.buttonColumn} /* {...popTransitionProps} */
 				>
 					<div className={styles.buttonRow}>
@@ -194,11 +248,19 @@ export default function ProjectsCarousel({
 		);
 	});
 
+	/* useLayoutEffect(() => {
+		const carousel = document.getElementById("carousel");
+
+		if (projectIndex && carousel) {
+			carousel.style.maxHeight = `${carousel.scrollHeight}px`;
+		}
+	}, [projectIndex]); */
+
 	const images = projects.map((project) => {
 		return (
 			<m.picture
 				className={styles.imageHolder}
-				key={`image_${project.name}`}
+				key={projectIndex}
 				{...column2Props}
 			>
 				<img
@@ -218,14 +280,14 @@ export default function ProjectsCarousel({
 
 	return (
 		<LazyMotion features={domAnimation}>
-			<div className={styles.carrousel}>
+			<div id="carousel" className={styles.carousel}>
 				<div className={styles.holder}>
-					<AnimatePresence mode="popLayout">
+					<AnimatePresence mode="popLayout" initial={false}>
 						{descriptions[projectIndex]}
 					</AnimatePresence>
 				</div>
 				<div className={styles.column2Container}>
-					<AnimatePresence mode="popLayout">
+					<AnimatePresence mode="popLayout" initial={false} custom={direction}>
 						{images[projectIndex]}
 					</AnimatePresence>
 					{children}

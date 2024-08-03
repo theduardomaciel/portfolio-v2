@@ -14,19 +14,20 @@
     justify-content: center;
 }
 
-.projects .carrousel {
+.projects .carousel {
     display: flex;
     flex-direction: column;
     width: 100%;
 
     gap: 2.5rem;
+    transition: all 2s ease-in-out
 }
 
-.carrousel::placeholder {
+.carousel::placeholder {
     color: var(--secondary-01);
 }
 
-.carrousel .image {
+.carousel .image {
     width: fit-content;
     height: 100%;
     user-select: none;
@@ -39,7 +40,7 @@
     opacity: 1;
 }
 
-.carrousel .info .infoHeader {
+.carousel .info .infoHeader {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -360,7 +361,7 @@
         margin-bottom: 3rem;
     }
 
-    .projects .carrousel {
+    .projects .carousel {
         display: flex;
         flex-direction: row;
 
@@ -369,15 +370,15 @@
         gap: 12.5rem;
     }
 
-    .projects .carrousel .info {
+    .projects .carousel .info {
         align-items: flex-start;
     }
 
-    .projects .carrousel .info h4 {
+    .projects .carousel .info h4 {
         margin-top: -2rem;
     }
 
-    .projects .carrousel .column2Container {
+    .projects .carousel .column2Container {
         height: 100%;
         width: 50%;
     }
@@ -393,7 +394,7 @@
         height: 27.5rem;
     }
 
-    .carrousel .image {
+    .carousel .image {
         min-height: 22.5rem;
         max-height: 27.5rem;
     }
