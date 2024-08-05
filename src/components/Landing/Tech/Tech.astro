@@ -1,0 +1,70 @@
+---
+import "@/styles/tech.css";
+
+import AstronautDeco from "@/components/Landing/AstronautDeco.astro";
+import Tag from "@/components/Landing/Tech/Tag.astro";
+import Level from "@/components/Landing/Tech/Level.astro";
+
+interface Props {
+	tech: TechSection[];
+}
+
+import { useTranslations } from "@/i18n/utils";
+import type { translations } from "@/i18n/utils";
+import type { TechSection } from "src/types/tech";
+
+const { lang } = Astro.params;
+const { tech } = Astro.props;
+
+const t = useTranslations(lang as keyof typeof translations).tech;
+---
+
+<section class={`tech section wrapper`} id="tech">
+    <header>
+        <p>{t.up_title},</p>
+        <h2>{t.title}</h2>
+        <p>
+            {t.subtitle}
+        </p>
+    </header>
+    <div class="content">
+        <ul id="techsList" class="techsList">
+            {
+                tech?.map((techSection) => (
+                        <li class="techSection">
+                            <Tag title={techSection.id} />
+                            <ul class="techs">
+                                {techSection.techs &&
+                                    techSection.techs.map((tech) => (
+                                            <li class="tech">
+                                                <div class="techIcon">
+                                                    <img
+                                                        width={100}
+                                                        height={100}
+                                                        loading="lazy"
+                                                        src={tech.icon_url}
+                                                        alt={`${tech.name} icon`}
+                                                    />
+                                                </div>
+                                                <div class="techDescription">
+                                                    <p>{tech.name} </p>
+                                                    <div class="row">
+                                                        <Level level={tech.experience_level} />
+                                                        <p>{t.levels[tech.experience_level]}</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        )
+                                    )
+                                }
+                            </ul>
+                        </li>
+                    ))
+            }
+        </ul>
+        <div class="column2">
+            <AstronautDeco />
+            <div class="overlay"></div>
+        </div>
+    </div>
+</section>

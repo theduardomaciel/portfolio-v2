@@ -1,73 +1,74 @@
 ---
-import Svg from "@jasikpark/astro-svg-loader";
+import Icon from "@/components/Icon.astro";
 
 // Types
 import type { Incident, Log, Prisma, Status } from "@prisma/client";
 
 interface Props {
-    name: string;
-    href: string;
-    hasDependencies?: boolean;
-    status: Status;
-    incident?: Incident & { logs?: Log[] };
-    lang: string;
-    focus?: boolean;
+	name: string;
+	href: string;
+	hasDependencies?: boolean;
+	status: Status;
+	incident?: Incident & { logs?: Log[] };
+	lang: string;
+	focus?: boolean;
 }
 
 const { name, href, hasDependencies, status, incident, lang, focus } =
-    Astro.props;
+	Astro.props;
 
 // Internationalization
 import { type translations, useTranslations } from "@/i18n/utils";
 const t = useTranslations(lang as keyof typeof translations).status;
 
 const secondsSinceLastUpdate = incident?.updatedAt
-    ? Math.floor(
-          (new Date().getTime() - new Date(incident.updatedAt).getTime()) / 1000
-      )
-    : 0;
+	? Math.floor(
+			(new Date().getTime() - new Date(incident.updatedAt).getTime()) /
+				1000,
+		)
+	: 0;
 
 const minutesSinceLastUpdate = incident?.updatedAt
-    ? Math.floor(
-          (new Date().getTime() - new Date(incident.updatedAt).getTime()) /
-              (1000 * 60)
-      )
-    : 0;
+	? Math.floor(
+			(new Date().getTime() - new Date(incident.updatedAt).getTime()) /
+				(1000 * 60),
+		)
+	: 0;
 
 const hoursSinceLastUpdate = incident?.updatedAt
-    ? Math.floor(
-          (new Date().getTime() - new Date(incident.updatedAt).getTime()) /
-              (1000 * 60 * 60)
-      )
-    : 0;
+	? Math.floor(
+			(new Date().getTime() - new Date(incident.updatedAt).getTime()) /
+				(1000 * 60 * 60),
+		)
+	: 0;
 
 const daysSinceLastUpdate = incident?.updatedAt
-    ? Math.floor(
-          (new Date().getTime() - new Date(incident.updatedAt).getTime()) /
-              (1000 * 60 * 60 * 24)
-      )
-    : 0;
+	? Math.floor(
+			(new Date().getTime() - new Date(incident.updatedAt).getTime()) /
+				(1000 * 60 * 60 * 24),
+		)
+	: 0;
 
 const timeString = `${t.last_updated} ${
-    daysSinceLastUpdate > 0
-        ? `${daysSinceLastUpdate} ${t.days}`
-        : hoursSinceLastUpdate > 0
-        ? `${hoursSinceLastUpdate} ${t.hours}`
-        : minutesSinceLastUpdate > 0
-        ? `${minutesSinceLastUpdate} ${t.minutes}`
-        : `${secondsSinceLastUpdate} ${t.seconds}`
+	daysSinceLastUpdate > 0
+		? `${daysSinceLastUpdate} ${t.days}`
+		: hoursSinceLastUpdate > 0
+			? `${hoursSinceLastUpdate} ${t.hours}`
+			: minutesSinceLastUpdate > 0
+				? `${minutesSinceLastUpdate} ${t.minutes}`
+				: `${secondsSinceLastUpdate} ${t.seconds}`
 } ${t.ago}`;
 
 const STATUS_COLORS = {
-    ACTIVE: "#40a826",
-    INACTIVE: "#808080",
-    MAINTENANCE: "#f5a623",
+	ACTIVE: "#40a826",
+	INACTIVE: "#808080",
+	MAINTENANCE: "#f5a623",
 };
 
 const INCIDENT_COLORS = {
-    CRITICAL: "#d0021b",
-    MAJOR: "#f5a623",
-    MINOR: "#f5a623",
+	CRITICAL: "#d0021b",
+	MAJOR: "#f5a623",
+	MINOR: "#f5a623",
 };
 
 const locationsArray = incident?.locations as Prisma.JsonArray;
@@ -77,7 +78,7 @@ const locationsArray = incident?.locations as Prisma.JsonArray;
     <header>
         <a class="row" href={href} target="_blank">
             <h2>{name}</h2>
-            <Svg src={import("/public/icons/external.svg?raw")} />
+            <Icon name="external" />
         </a>
         <div class="row">
             <div

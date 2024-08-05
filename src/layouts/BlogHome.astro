@@ -1,18 +1,28 @@
 ---
 import "@/styles/blog.css";
-import Svg from "@jasikpark/astro-svg-loader";
-
-import getTagsFromPost from "src/lib/sanity/getTagsFromPost";
-import type { PostTag } from "src/lib/sanity/getTagsFromPost";
+import Icon from "@/components/Icon.astro";
 
 import PostPreview from "@/components/Post/PostPreview.astro";
 import { getGuestFromId } from "@/api/guest";
 
+// Types
+import type { CollectionEntry } from "astro:content";
+import type { translations } from "@/i18n/utils";
+import type { Post } from "@prisma/client";
+
+interface Props {
+    posts: CollectionEntry<'blog'>[];
+    tags: string[];
+}
+
+const { lang, category } = Astro.params;
 const { posts, tags } = Astro.props;
-const sortedTags = tags.sort((tagA: PostTag, tagB: PostTag) => {
-	return tagA.title.localeCompare(tagB.title);
+
+const sortedTags = tags.sort((tagA: string, tagB: string) => {
+	return tagA.localeCompare(tagB);
 });
 
+// Authentication
 const guestId = Astro.cookies.get("guest.id")?.value;
 const guest = await getGuestFromId(guestId);
 const isLogged = guestId !== undefined;
@@ -25,10 +35,6 @@ const markedPostsSlugs = guest?.readingList.map(
 );
 
 import { useTranslations } from "@/i18n/utils";
-import type { translations } from "@/i18n/utils";
-import type { Post } from "@prisma/client";
-
-const { lang, category } = Astro.params;
 const t = useTranslations(lang as keyof typeof translations).blog;
 ---
 
@@ -77,10 +83,10 @@ const t = useTranslations(lang as keyof typeof translations).blog;
             isLogged ? (
                 <div class="bookmarksContainer">
                     <a class="button" href="/blog/bookmarks">
-                        <Svg
+                        <Icon
                             class="icon"
                             fill={"var(--primary-01)"}
-                            src={import("@/public/icons/bookmark.svg?raw")}
+                            name="bookmark.svg?raw"
                             aria-label="Bookmark icon"
                         />
                         {t.reading_list.title}
@@ -90,10 +96,10 @@ const t = useTranslations(lang as keyof typeof translations).blog;
                         class="button"
                         style="padding-inline: 1.5rem;"
                     >
-                        <Svg
+                        <Icon
                             class="icon"
                             fill={"var(--primary-01)"}
-                            src={import("@/public/icons/logout.svg?raw")}
+                            name="logout.svg?raw"
                             aria-label="Logout icon"
                         />
                     </button>
@@ -114,11 +120,10 @@ const t = useTranslations(lang as keyof typeof translations).blog;
                             borderRadius: "0.5rem",
                         }}
                     >
-                        <Svg
-                            src={import("@/assets/icons/github.svg?raw")}
+                        <Icon
+                            name={"enterprises/github"}
                             aria-label="Github icon"
-                            width={`1.8rem`}
-                            height={`1.8rem`}
+                            class="w-6 h-6"
                         />
                         {t.login.button}
                     </button>
@@ -139,17 +144,17 @@ const t = useTranslations(lang as keyof typeof translations).blog;
                 </li>
                 <div class="divisor"></div>
                 {
-                    sortedTags.map((tag: PostTag, index: number) => {
+                    sortedTags.map((tag: string, index: number) => {
                         return (
                             <Fragment>
                                 <li
-                                    title={tag.title}
+                                    title={tag}
                                     class={`tag ${
-                                        category === tag.title ? "active" : ""
+                                        category === tag ? "active" : ""
                                     }`}
                                 >
-                                    <a href={`/blog/category/${tag.title}`} data-astro-prefetch>
-                                        #{tag.title}
+                                    <a href={`/blog/category/${tag}`} data-astro-prefetch>
+                                        #{tag}
                                     </a>
                                 </li>
                                 {index !== tags.length - 1 && (
@@ -167,20 +172,15 @@ const t = useTranslations(lang as keyof typeof translations).blog;
     {
         posts.length > 0 ? (
             <section id="postsContainer" class="posts wrapper">
-                {posts.map((post: any, index: number) => {
-                    const postTags = getTagsFromPost(
-                        sortedTags,
-                        post.categories
-                    );
-                    const hasMarked =
-                        guest && markedPostsSlugs?.includes(post.slug.current);
+                {posts.map((post, index) => {
+                    const hasMarked = guest && markedPostsSlugs?.includes(post.slug) ? true : false;
 
                     return (
                         <PostPreview
-                            hightPriority={index <= 5}
+                            highPriority={index <= 5}
                             isLogged={isLogged}
                             post={post}
-                            tags={postTags}
+                            tags={post.data.tags}
                             hasMarked={hasMarked}
                         />
                     );

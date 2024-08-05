@@ -4,8 +4,8 @@ import { useId } from "react";
 import styles from "./buttons.module.css";
 
 // Icons
-import ShareIcon from "@/assets/icons/share.svg?react";
-import type { SanityPost } from "@/types/post";
+import ShareIcon from "@/icons/share.svg?react";
+import type { SanityPost } from "src/types/post";
 
 interface Props {
 	post: SanityPost;

@@ -1,164 +1,163 @@
 {
-    "nav": {
-        "home": "Inicio",
-        "projects": "Proyectos",
-        "tech": "Tecnología",
-        "theme": {
-            "system": "Sistema",
-            "light": "Claro",
-            "dark": "Oscuro"
-        },
-        "lod": {
-            "high": "Alto",
-            "low": "Bajo"
-        }
-    },
-    "home": {
-        "title": "Hola, soy",
-        "subtitle": "Un diseñador e ingeniero de software en curso brasileño de 18 años.",
-        "action": "Echa un vistazo a Github",
-        "outro": "(¡actualmente estudiando Ciencias de la Computación! 🎉)"
-    },
-    "projects": {
-        "title": "Proyectos",
-        "carousel": {
-            "status": {
-                "COMPLETED": "Completado",
-                "WORK_IN_PROGRESS": "En Progreso",
-                "PAUSED": "Pausado",
-                "SKETCH": "Boceto",
-                "ARCHIVED": "Archivado",
-                "OUTDATED": "Obsoleto"
-            },
-            "since": "Desde",
-            "button": "Ver Proyecto",
-            "expand": "Más Información",
-            "collapse": "Menos Información"
-        },
-        "info": {
-            "title": "Tecnologías utilizadas para construir los servicios de la aplicación",
-            "frontend": "Frontend",
-            "backend": "Backend",
-            "database": "Base de Datos",
-            "api": "API",
-            "mobile": "Móvil",
-            "github": "Ver otros repositorios"
-        }
-    },
-    "tech": {
-        "up_title": "y finalmente",
-        "title": "tecnología",
-        "subtitle": "En mi trayectoria personal, he trabajado con algunas tecnologías, y aquí están:",
-        "units": {
-            "month": "mes",
-            "months": "meses",
-            "year": "año",
-            "years": "años"
-        },
-        "experience": "experiencia"
-    },
-    "contact": {
-        "title": "Tienes una idea en la cabeza?",
-        "subtitle": "¡Ingresa tu correo electrónico para que podamos ponernos en contacto!",
-        "button": "Contactar",
-        "input": {
-            "placeholder": {
-                "email": "Ingresa tu correo electrónico",
-                "valid_email": "Ingresa un correo electrónico válido",
-                "pending": "Espera un momento..."
-            }
-        },
-        "return_button": "Volver a Inicio",
-        "success": {
-            "title": "¡Yay! ¡Todo salió bien! ✅",
-            "subtitle": "¡Muchas gracias por tu mensaje! Te responderé tan pronto como pueda.",
-            "opposite": "Pero por ahora...",
-            "check_social": "Puedes revisar mis redes sociales para conocer un poco más sobre mi trabajo (¡perdón por la falta de publicaciones!)",
-            "by_the_way": "Por cierto, en caso de que necesites una respuesta urgente",
-            "addendum": "o estés ansioso y no quieras esperar mi respuesta.",
-            "dm_me": "puedes enviarme un mensaje directo a través de una de estas redes a continuación:",
-            "thanks": "¡Desde ya, muchas gracias por tu elección y atención! ❤️"
-        },
-        "error": {
-            "title": "¡Oh no! ¡Algo salió mal! ❌",
-            "subtitle": "Lo siento, pero algo salió mal al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde. Si el problema persiste, puedes contactarme a través de mis redes sociales a continuación:",
-            "thanks": "¡Desde ya, muchas gracias por tu elección y atención! ❤️"
-        }
-    },
-    "footer": {
-        "love": "Hecho con ❤️ por Eduardo Maciel.",
-        "fetching": "Obteniendo...",
-        "current_listening": "actualmente estoy escuchando",
-        "not_listening": "actualmente no estoy escuchando nada en este momento",
-        "locale": {
-            "title": "Idioma",
-            "languages": {
-                "en": "Inglés",
-                "pt-br": "Portugués (Brasil)",
-                "es": "Español"
-            }
-        }
-    },
-    "blog": {
-        "title": "Blog",
-        "login": {
-            "title": "¿Quieres guardar artículos para leer más tarde?\nAgrégales a tu lista de lectura.",
-            "button": "Iniciar sesión con Github"
-        },
-        "tags": {
-            "all": "Todo",
-            "empty": "Parece que no hay publicaciones en el blog con esta etiqueta aún."
-        },
-        "reading_list": {
-            "title": "Lista de Lectura",
-            "empty": {
-                "title": "¡Está un poco vacío aquí!",
-                "subtitle": "Agrega algunos artículos a tu lista de lectura para verlos aquí."
-            }
-        },
-        "share": "Compartir",
-        "return_button": "Volver a Inicio"
-    },
-    "404": {
-        "subtitle": "Esta página no existe o su funcionalidad aún no ha sido implementada.",
-        "return_button": "Volver a Inicio"
-    },
-    "status": {
-        "header": {
-            "title": "Status",
-            "subtitle": "Consultar el estado actual de las aplicaciones desarrolladas y su disponibilidad para el público."
-        },
-        "status": {
-            "ACTIVE": "On-line",
-            "INACTIVE": "Inactivo",
-            "MAINTENANCE": "En Mantenimiento"
-        },
-        "incident": {
-            "locations": "Lugares",
-            "level": {
-                "NONE": "Todos los sistemas operativos",
-                "MINOR": "Problemas operativos",
-                "MAJOR": "Problemas operativos",
-                "CRITICAL": "Actualmente un problema está siendo investigado"
-            },
-            "logs": {
-                "tag": {
-                    "INVESTIGATING": "Investigando",
-                    "IDENTIFIED": "Identificado",
-                    "MONITORING": "Monitoreando",
-                    "RESOLVED": "Resuelto"
-                }
-            }
-        },
-        "last_updated": "Actualizado por última vez",
-        "second": "segundo",
-        "seconds": "segundos",
-        "minute": "minuto",
-        "minutes": "minutos",
-        "day": "día",
-        "days": "días",
-        "hour": "hora",
-        "hours": "horas",
-        "ago": "atrás"
-    }
+	"nav": {
+		"home": "Inicio",
+		"projects": "Proyectos",
+		"tech": "Tecnología",
+		"theme": {
+			"system": "Sistema",
+			"light": "Claro",
+			"dark": "Oscuro"
+		},
+		"lod": {
+			"high": "Alto",
+			"low": "Bajo"
+		}
+	},
+	"home": {
+		"title": "Hola, soy",
+		"subtitle": "Un diseñador e ingeniero de software en curso brasileño de {x} años.",
+		"action": "Echa un vistazo a Github",
+		"outro": "(¡actualmente estudiando Ciencias de la Computación! 🎉)"
+	},
+	"projects": {
+		"title": "Proyectos",
+		"carousel": {
+			"status": {
+				"COMPLETED": "Completado",
+				"WORK_IN_PROGRESS": "En Progreso",
+				"PAUSED": "Pausado",
+				"SKETCH": "Boceto",
+				"ARCHIVED": "Archivado",
+				"OUTDATED": "Obsoleto"
+			},
+			"since": "Desde",
+			"button": "Ver Proyecto",
+			"expand": "Más Información",
+			"collapse": "Menos Información"
+		},
+		"info": {
+			"title": "Tecnologías utilizadas para construir los servicios de la aplicación",
+			"frontend": "Frontend",
+			"backend": "Backend",
+			"database": "Base de Datos",
+			"api": "API",
+			"mobile": "Móvil",
+			"github": "Ver otros repositorios"
+		}
+	},
+	"tech": {
+		"up_title": "y finalmente",
+		"title": "tecnología",
+		"subtitle": "En mi trayectoria personal, he trabajado con algunas tecnologías, y aquí están:",
+		"levels": {
+			"1": "Principiante",
+			"2": "Conocedor",
+			"3": "Experto"
+		},
+		"experience": "experiencia"
+	},
+	"contact": {
+		"title": "Tienes una idea en la cabeza?",
+		"subtitle": "¡Ingresa tu correo electrónico para que podamos ponernos en contacto!",
+		"button": "Contactar",
+		"input": {
+			"placeholder": {
+				"email": "Ingresa tu correo electrónico",
+				"valid_email": "Ingresa un correo electrónico válido",
+				"pending": "Espera un momento..."
+			}
+		},
+		"return_button": "Volver a Inicio",
+		"success": {
+			"title": "¡Yay! ¡Todo salió bien! ✅",
+			"subtitle": "¡Muchas gracias por tu mensaje! Te responderé tan pronto como pueda.",
+			"opposite": "Pero por ahora...",
+			"check_social": "Puedes revisar mis redes sociales para conocer un poco más sobre mi trabajo (¡perdón por la falta de publicaciones!)",
+			"by_the_way": "Por cierto, en caso de que necesites una respuesta urgente",
+			"addendum": "o estés ansioso y no quieras esperar mi respuesta.",
+			"dm_me": "puedes enviarme un mensaje directo a través de una de estas redes a continuación:",
+			"thanks": "¡Desde ya, muchas gracias por tu elección y atención! ❤️"
+		},
+		"error": {
+			"title": "¡Oh no! ¡Algo salió mal! ❌",
+			"subtitle": "Lo siento, pero algo salió mal al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde. Si el problema persiste, puedes contactarme a través de mis redes sociales a continuación:",
+			"thanks": "¡Desde ya, muchas gracias por tu elección y atención! ❤️"
+		}
+	},
+	"footer": {
+		"love": "Hecho con ❤️ por Eduardo Maciel.",
+		"fetching": "Obteniendo...",
+		"current_listening": "actualmente estoy escuchando",
+		"not_listening": "actualmente no estoy escuchando nada en este momento",
+		"locale": {
+			"title": "Idioma",
+			"languages": {
+				"en": "Inglés",
+				"pt-br": "Portugués (Brasil)",
+				"es": "Español"
+			}
+		}
+	},
+	"blog": {
+		"title": "Blog",
+		"login": {
+			"title": "¿Quieres guardar artículos para leer más tarde?\nAgrégales a tu lista de lectura.",
+			"button": "Iniciar sesión con Github"
+		},
+		"tags": {
+			"all": "Todo",
+			"empty": "Parece que no hay publicaciones en el blog con esta etiqueta aún."
+		},
+		"reading_list": {
+			"title": "Lista de Lectura",
+			"empty": {
+				"title": "¡Está un poco vacío aquí!",
+				"subtitle": "Agrega algunos artículos a tu lista de lectura para verlos aquí."
+			}
+		},
+		"share": "Compartir",
+		"return_button": "Volver a Inicio"
+	},
+	"404": {
+		"subtitle": "Esta página no existe o su funcionalidad aún no ha sido implementada.",
+		"return_button": "Volver a Inicio"
+	},
+	"status": {
+		"header": {
+			"title": "Status",
+			"subtitle": "Consultar el estado actual de las aplicaciones desarrolladas y su disponibilidad para el público."
+		},
+		"status": {
+			"ACTIVE": "On-line",
+			"INACTIVE": "Inactivo",
+			"MAINTENANCE": "En Mantenimiento"
+		},
+		"incident": {
+			"locations": "Lugares",
+			"level": {
+				"NONE": "Todos los sistemas operativos",
+				"MINOR": "Problemas operativos",
+				"MAJOR": "Problemas operativos",
+				"CRITICAL": "Actualmente un problema está siendo investigado"
+			},
+			"logs": {
+				"tag": {
+					"INVESTIGATING": "Investigando",
+					"IDENTIFIED": "Identificado",
+					"MONITORING": "Monitoreando",
+					"RESOLVED": "Resuelto"
+				}
+			}
+		},
+		"last_updated": "Actualizado por última vez",
+		"second": "segundo",
+		"seconds": "segundos",
+		"minute": "minuto",
+		"minutes": "minutos",
+		"day": "día",
+		"days": "días",
+		"hour": "hora",
+		"hours": "horas",
+		"ago": "atrás"
+	}
 }

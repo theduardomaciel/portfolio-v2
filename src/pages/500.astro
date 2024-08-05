@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const seo = {
+	title: "Uh Oh! Internal Server Error",
+	description: "Looks like something went wrong on our end.",
+};
+---
+
+<script>
+    const back = document.querySelector(".button.back") as HTMLButtonElement;
+    back.addEventListener("click", () => {
+        window.history.back();
+    });
+</script>
+
+<BaseLayout seo={seo}>
+    <div class="wrapper content">
+        <h1>404</h1>
+        <p>
+            Oops! <br />
+            Looks like something went wrong on our end. Please try again later.
+        </p>
+        <button
+            class="button back"
+            style="padding: 1rem 2.5rem; font-size: 1.8rem;"
+            >Return to home</button
+        >
+    </div>
+</BaseLayout>
+
+<style>
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5rem;
+
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .content h1 {
+        font-size: 8.4rem;
+        font-family: "Roboto Slab Variable";
+    }
+
+    .content p {
+        font-size: 2.4rem;
+        font-family: "Roboto Serif Variable";
+        text-align: center;
+
+        width: 50%;
+    }
+</style>

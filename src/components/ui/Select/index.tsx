@@ -7,7 +7,7 @@ const Select = SelectPrimitive.Root;
 const SelectGroup = SelectPrimitive.Group;
 const SelectValue = SelectPrimitive.Value;
 
-import Chevron from "@/assets/icons/chevron.svg?react";
+import Chevron from "@/icons/chevron_left.svg?react";
 
 interface SelectTriggerProps
 	extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {

@@ -6,16 +6,16 @@ import BlogHome from "@/layouts/BlogHome.astro";
 import Footer from "@/components/Footer/Footer.astro";
 import Header from "@/components/Header/Header.astro";
 
-import { getAllPostsWithCategory, getAllTags } from "src/lib/sanity/api";
+const { lang, category } = Astro.params;
 
-const { category } = Astro.params;
+import { getBlogPosts, getBlogTags } from "@/lib/blog";
 
-const allTags = await getAllTags();
-const posts = (await getAllPostsWithCategory(category as string)) || [];
+const posts = await getBlogPosts(lang, category);
+const tags = getBlogTags(posts);
 
 const seo = {
-    title: "Blog",
-    description: "The blog of my simple porfolio.",
+	title: "Blog",
+	description: "The blog of my simple porfolio.",
 };
 
 export const prerender = false;
@@ -24,7 +24,7 @@ export const prerender = false;
 <BaseLayout seo={seo}>
     <BlogLayout>
         <Header />
-        <BlogHome posts={posts} tags={allTags} />
+        <BlogHome posts={posts} tags={tags} />
         <Footer />
     </BlogLayout>
 </BaseLayout>

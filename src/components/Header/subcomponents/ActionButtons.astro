@@ -1,5 +1,5 @@
 ---
-import Svg from "@jasikpark/astro-svg-loader";
+import Icon from "@/components/Icon.astro";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
@@ -63,22 +63,22 @@ const t = useTranslations(lang).nav;
 <div class="holder">
     <slot />
     <div id="themeButton" class="iconHolder theme">
-        <Svg
+        <Icon
             class={"interactiveIcon"}
             id={"darkIcon"}
             width={28}
             height={28}
             fill={"var(--primary-01)"}
-            src={import("@/public/icons/dark_mode.svg?raw")}
+            name={"dark_mode"}
             aria-label="Dark theme toggle button"
         />
-        <Svg
+        <Icon
             class={"interactiveIcon"}
             id={"lightIcon"}
             width={28}
             height={28}
             fill={"var(--primary-01)"}
-            src={import("@/public/icons/light_mode.svg?raw")}
+            name={"light_mode"}
             aria-label="Theme toggle button"
         />
         <p style="text-transform: uppercase;" id="currentTheme">
@@ -91,21 +91,21 @@ const t = useTranslations(lang).nav;
             href="https://github.com/theduardomaciel"
             target="_blank"
         >
-            <Svg
+            <Icon
                 class={"icon"}
-                src={import("@/public/icons/enterprises/github.svg?raw")}
+                name={"enterprises/github"}
                 aria-label="Github icon"
             />
         </a>
         <p class="github">GitHub</p>
     </div>
     <div id="lodButton" class="iconHolder lod">
-        <Svg
+        <Icon
             class={"interactiveIcon detail"}
             width={28}
             height={28}
             fill={"var(--primary-01)"}
-            src={import("@/public/icons/level_of_detail.svg?raw")}
+            name={"level_of_detail"}
             aria-label="Level of detail toggle button"
         />
         <p style="text-transform: uppercase;" id="currentLOD">{t.lod.high}</p>

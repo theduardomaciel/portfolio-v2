@@ -3,14 +3,11 @@ import "@/styles/bookmarks.css";
 import "@/styles/post.css";
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Svg from "@jasikpark/astro-svg-loader";
+import Icon from "@/components/Icon.astro";
 
 import Footer from "@/components/Footer/Footer.astro";
 import Header from "@/components/Header/Header.astro";
 import PostPreview from "@/components/Post/PostPreview.astro";
-
-import { getAllPosts, getAllTags } from "src/lib/sanity/api";
-import getTagsFromPost from "src/lib/sanity/getTagsFromPost";
 
 import { getGuestFromId } from "@/api/guest/index";
 
@@ -26,8 +23,11 @@ if (!guest) {
 	Astro.redirect("/blog");
 }
 
-const tags = await getAllTags();
-const allPosts = await getAllPosts();
+import { getCollection } from "astro:content";
+import { getBlogTags } from "@/lib/blog";
+
+const allPosts = await getCollection("blog");
+const tags = getBlogTags(allPosts);
 
 if (!guest) {
 	return Astro.redirect("/404");
@@ -35,8 +35,8 @@ if (!guest) {
 
 const guestReadingListTitles = guest.readingList.map((post: Post) => post.slug);
 
-const posts = allPosts.filter((post: SanityPost) => {
-	return guestReadingListTitles.includes(post.slug.current);
+const posts = allPosts.filter((post) => {
+	return guestReadingListTitles.includes(post.slug);
 });
 
 const seo = {
@@ -48,8 +48,7 @@ export const prerender = false;
 
 import { useTranslations } from "@/i18n/utils";
 import type { translations } from "@/i18n/utils";
-import type { Guest, Post } from "@prisma/client";
-import type { SanityPost } from "@/types/post";
+import type { Post } from "@prisma/client";
 
 const { lang } = Astro.params;
 const t = useTranslations(lang as keyof typeof translations).blog;
@@ -64,8 +63,8 @@ const t = useTranslations(lang as keyof typeof translations).blog;
                 <div></div>
             </div>
             <a href="/blog" class="back">
-                <Svg
-                    src={import("@/public/icons/left_arrow.svg?raw")}
+                <Icon
+                    name={"left_arrow"}
                     aria-label={"Back arrow"}
                 />
                 {t.return_button}
@@ -74,10 +73,7 @@ const t = useTranslations(lang as keyof typeof translations).blog;
         <section class={`posts ${posts.length === 0 ? "empty" : ""}`}>
             {
                 posts.length > 0 ? (
-                    posts.map((post: any) => {
-                        const postTags = getTagsFromPost(tags, post.categories);
-                        return <PostPreview post={post} tags={postTags} />;
-                    })
+                    posts.map((post) => <PostPreview post={post} tags={post.data.tags} />)
                 ) : (
                     <div class="empty">
                         <h2>{t.reading_list.empty.title}</h2>

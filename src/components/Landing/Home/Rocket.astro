@@ -1,0 +1,44 @@
+---
+import Icon from "@/components/Icon.astro";
+
+const { classes } = Astro.props;
+---
+
+<div class={`rocketHolder ${classes}`}>
+    <img
+        class="fire"
+        src="/visual/fire.gif"
+        width="25"
+        height="25"
+        alt="fire"
+    />
+    <Icon
+        width={66} 
+        height={40} 
+        class={"rocketSvg"}
+        name="visuals/rocket"
+        aria-label="Drawing of a rocket"
+    />
+</div>
+
+<style>
+    .rocketHolder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .rocketSvg {
+        z-index: 1000;
+    }
+
+    .fire {
+        transform: rotate(-90deg) translateY(15%);
+        z-index: 1000;
+    }
+
+    html[data-theme="dark"] .fire {
+        filter: invert();
+    }
+</style>

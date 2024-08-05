@@ -276,14 +276,11 @@
 		"technologies": [
 			{
 				"name": "Front End",
-				"techs": [
-					"React",
-					"TypeScript",
-					"HTML",
-					"CSS",
-					"Astro",
-					"Sanity"
-				]
+				"techs": ["React", "TypeScript", "HTML", "CSS", "Astro"]
+			},
+			{
+				"name": "Backend",
+				"techs": ["MDX", "Astro Collections", "Vercel"]
 			}
 		]
 	}

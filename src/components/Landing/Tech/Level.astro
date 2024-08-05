@@ -1,0 +1,47 @@
+---
+const { level } = Astro.props;
+---
+
+<div class="bars">
+	<div class:list={["rectangle1", level >= 1 ? "active" : "unactive"]}></div>
+	<div class:list={["rectangle18", level >= 2 ? "active" : "unactive"]}></div>
+	<div class:list={["rectangle19", level >= 3 ? "active" : "unactive"]}></div>
+</div>
+
+<style>
+	.bars {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		gap: 0.4rem;
+	}
+
+	.rectangle1 {
+		width: 6px;
+		height: 6px;
+		background: var(--primary-01);
+		border-radius: 99px;
+	}
+
+	.rectangle18 {
+		width: 6px;
+		height: 12px;
+		background: var(--primary-01);
+		border-radius: 99px;
+	}
+
+	.rectangle19 {
+		width: 6px;
+		height: 18px;
+		background: var(--primary-01);
+		border-radius: 99px;
+	}
+
+	.unactive {
+		opacity: 0.3;
+	}
+
+	.active {
+		opacity: 1;
+	}
+</style>

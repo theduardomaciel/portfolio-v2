@@ -4,24 +4,24 @@ import Layout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/Header/Header.astro";
 import Footer from "@/components/Footer/Footer.astro";
 
-import Home from "@/components/Landing/Sections/Home/Home.astro";
-import Projects from "@/components/Landing/Sections/Projects/Projects";
-import Experiences from "@/components/Landing/Sections/Experiences/Experiences.astro";
-import Contact from "@/components/Landing/Sections/Contact/Contact.astro";
+import Home from "@/components/Landing/Home/Home.astro";
+import Projects from "@/components/Landing/Projects/Projects";
+import Tech from "@/components/Landing/Tech/Tech.astro";
+import Contact from "@/components/Landing/Contact/Contact.astro";
 
 import projects_en from "@/public/data/projects/projects.json";
 import projects_es from "@/public/data/projects/dictionaries/es.json";
 import projects_pt from "@/public/data/projects/dictionaries/pt-br.json";
 
-import experiences_en from "@/public/data/experiences/experiences.json";
-import experiences_es from "@/public/data/experiences/dictionaries/es.json";
-import experiences_pt from "@/public/data/experiences/dictionaries/pt-br.json";
+import tech_en from "@/public/data/tech/tech.json";
+import tech_es from "@/public/data/tech/dictionaries/es.json";
+import tech_pt from "@/public/data/tech/dictionaries/pt-br.json";
 
 export const prerender = true;
 
 import { defaultLang, translations } from "@/i18n/utils";
-import type { Project } from "@/types/project";
-import type { Experience } from "@/types/experience";
+import type { Project } from "src/types/project";
+import type { TechSection } from "src/types/tech";
 
 interface DictionaryProject {
 	name?: string;
@@ -74,12 +74,12 @@ export async function getStaticPaths() {
 								),
 							} as Project;
 						}),
-			experiences: experiences_en.map((experience) => {
+			tech: tech_en.map((experience) => {
 				const { id, ...rest } = experience;
 
 				const techsDictionaries = {
-					es: experiences_es,
-					"pt-br": experiences_pt,
+					es: tech_es,
+					"pt-br": tech_pt,
 				};
 
 				const dictionary =
@@ -92,14 +92,14 @@ export async function getStaticPaths() {
 				return {
 					...rest,
 					id: localization ? localization.name : id,
-				} as Experience;
+				} as TechSection;
 			}),
 		},
 	}));
 }
 
 const { lang } = Astro.params;
-const { projects, experiences } = Astro.props;
+const { projects, tech } = Astro.props;
 ---
 
 <script>
@@ -145,7 +145,7 @@ const { projects, experiences } = Astro.props;
     <main>
         <Home />
         <Projects projects={projects} lang={lang} client:load />
-        <Experiences experiences={experiences} />
+        <Tech tech={tech} />
         <Contact />
     </main>
     <Footer />

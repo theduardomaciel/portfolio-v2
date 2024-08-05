@@ -1,0 +1,157 @@
+[
+	{
+		"id": "general",
+		"techs": [
+			{
+				"name": "C",
+				"experience_level": 2,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/eeea6ea86b2fc11ac32f7779e2178428e9ce683f/c.svg"
+			},
+			{
+				"name": "Java",
+				"experience_level": 1,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/01b5c8cb2a06025428cb61c18bc5a7d23b4bc517/java.svg"
+			},
+			{
+				"name": "Python",
+				"experience_level": 2,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/58dd2b02e767c81b9c8c89e1ce9adcace01eeda3/python.svg"
+			}
+		]
+	},
+	{
+		"id": "mobile",
+		"techs": [
+			{
+				"name": "React Native",
+				"experience_level": 2,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/react.svg"
+			},
+			{
+				"name": "Kotlin",
+				"experience_level": 1,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/01b5c8cb2a06025428cb61c18bc5a7d23b4bc517/kotlin.svg"
+			}
+		]
+	},
+	{
+		"id": "web",
+		"techs": [
+			{
+				"name": "HTML",
+				"experience_level": 3,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/html.svg"
+			},
+			{
+				"name": "CSS",
+				"experience_level": 3,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/css.svg"
+			},
+			{
+				"name": "JavaScript",
+				"experience_level": 3,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/javascript.svg"
+			},
+			{
+				"name": "TypeScript",
+				"experience_level": 3,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/typescript.svg"
+			}
+		]
+	},
+	{
+		"id": "frameworks",
+		"techs": [
+			{
+				"name": "Next.js",
+				"experience_level": 3,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/nextjs.svg"
+			},
+			{
+				"name": "Astro",
+				"experience_level": 2,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/astro.svg"
+			},
+			{
+				"name": "Node.js",
+				"experience_level": 2,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/nodejs.svg"
+			}
+		]
+	},
+	{
+		"id": "libraries",
+		"techs": [
+			{
+				"name": "React",
+				"experience_level": 3,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/react.svg"
+			},
+			{
+				"name": "TailwindCSS",
+				"experience_level": 2,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/03b71945919d4934500bdd0cfd661d55bc299a82/tailwindcss.svg"
+			}
+		]
+	},
+	{
+		"id": "data",
+		"techs": [
+			{
+				"name": "PostgreSQL",
+				"experience_level": 2,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/postgresql.svg"
+			},
+			{
+				"name": "MySQL",
+				"experience_level": 2,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/c02fcc38b2f42fff9c26e8dc7cba04f63adc9400/mysql.svg"
+			},
+			{
+				"name": "WatermelonDB",
+				"experience_level": 1,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/1e7f2fc8cb5888dd69bae8e1c6adf78f038739db/watermelondb.svg"
+			},
+			{
+				"name": "MongoDB",
+				"experience_level": 1,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/58dd2b02e767c81b9c8c89e1ce9adcace01eeda3/mongodb.svg"
+			},
+			{
+				"name": "R",
+				"experience_level": 1,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/58dd2b02e767c81b9c8c89e1ce9adcace01eeda3/r.svg"
+			}
+		]
+	},
+	{
+		"id": "ORMs",
+		"techs": [
+			{
+				"name": "Prisma",
+				"experience_level": 2,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/prisma.svg"
+			},
+			{
+				"name": "Drizzle",
+				"experience_level": 1,
+				"icon_url": "https://gist.githubusercontent.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/4da35d1845a078121c3b9cf9c5a6279ac8649819/drizzle.svg"
+			}
+		]
+	},
+	{
+		"id": "games",
+		"techs": [
+			{
+				"name": "Lua",
+				"experience_level": 2,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/lua.svg"
+			},
+			{
+				"name": "C#",
+				"experience_level": 1,
+				"icon_url": "https://gistcdn.githack.com/theduardomaciel/099d3e6ae02bf45bc9b1f3bb6b4ed09e/raw/6063bd44f21f735eda26e716b91933d7db0bdef8/csharp.svg"
+			}
+		]
+	}
+]
